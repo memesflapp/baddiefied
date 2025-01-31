@@ -32,8 +32,8 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
+    namespace "com.flapp.meme"
     compileSdkVersion 34
-    
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -51,6 +51,14 @@ android {
         targetSdkVersion 34
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
     }
 
    signingConfigs {

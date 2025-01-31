@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="gcm_defaultSenderId" translatable="false">836116643878</string>
-    <string name="google_api_key" translatable="false">AIzaSyCzQAZa5ivmTlCga3Hxo2MdEkdGsQZnzbU</string>
-    <string name="google_app_id" translatable="false">1:836116643878:android:80f0b3ca7b49b46fa6a6e7</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCzQAZa5ivmTlCga3Hxo2MdEkdGsQZnzbU</string>
-    <string name="google_storage_bucket" translatable="false">inhousecrm-spc.appspot.com</string>
-    <string name="project_id" translatable="false">inhousecrm-spc</string>
-</resources>

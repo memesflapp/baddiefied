@@ -17,8 +17,8 @@ export 'shorts_model.dart';
 
 
 class ShortsWidget extends StatefulWidget {
-    late ShortsModel _model;
- 
+
+    const ShortsWidget({super.key});
 
   @override
   State<ShortsWidget> createState() => _ShortsWidgetState();
