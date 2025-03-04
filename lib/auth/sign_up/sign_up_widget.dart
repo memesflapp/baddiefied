@@ -530,10 +530,12 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                           style: FlutterFlowTheme.of(context).bodyMedium.override(
                                 fontSize: 13.0,
                                 letterSpacing: 0.0,
+                            color: FlutterFlowTheme.of(context).info,
                               ),
                         ),
                       ],
                     ),
+                    const SizedBox(height: 12.0),
                     Align(
                       alignment: const AlignmentDirectional(0.0, 0.0),
                       child: FFButtonWidget(
@@ -572,14 +574,14 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                             );
                           }
                         },
-                        text: 'Continue with google',
+                        text: 'Continue with Google',
                         icon: const FaIcon(
                           FontAwesomeIcons.google,
                           color: Color(0xFFF41420),
                           size: 20.0,
                         ),
                         options: FFButtonOptions(
-                          height: 40.0,
+                          height: 50.0,
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               16.0, 0.0, 16.0, 0.0),
                           iconPadding: const EdgeInsetsDirectional.fromSTEB(
@@ -589,6 +591,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                           FlutterFlowTheme.of(context).titleSmall.override(
                             color: Colors.white,
                             letterSpacing: 0.0,
+                              fontSize: 20, fontWeight: FontWeight.w900
                           ),
                           elevation: 0.0,
                           borderRadius: BorderRadius.circular(8.0),
@@ -609,17 +612,19 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                           style: FlutterFlowTheme.of(context).bodyMedium.override(
                                 fontSize: 13.0,
                                 letterSpacing: 0.0,
+                            color: FlutterFlowTheme.of(context).info,
                               ),
                         ),
-                      ].divide(const SizedBox(width: 9.0)),
+                      ],
                     ),
+                    const SizedBox(height: 12.0),
                     FFButtonWidget(
                       onPressed: () async {
                         context.pushNamed('LoginPage');
                       },
-                      text: 'Login',
+                      text: 'Signin',
                       options: FFButtonOptions(
-                        height: 29.0,
+                        height: 50.0,
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             16.0, 0.0, 16.0, 0.0),
                         iconPadding: const EdgeInsetsDirectional.fromSTEB(
@@ -628,13 +633,12 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                         textStyle: FlutterFlowTheme.of(context)
                             .titleSmall
                             .override(
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          fontSize: 13.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.normal,
+                            color: FlutterFlowTheme.of(context).buttonTextColor,
+                            letterSpacing: 0.0,
+                            fontSize: 20, fontWeight: FontWeight.w900
                         ),
                         elevation: 0.0,
-                        borderRadius: BorderRadius.circular(8.0),
+                        borderRadius: BorderRadius.circular(12.0),
                       ),
                     ),
                   ],

@@ -1,3 +1,4 @@
+import 'package:flapp/utils/generics.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
@@ -221,17 +222,21 @@ class _FFButtonWidgetState extends State<FFButtonWidget> {
         );
       }
       return SizedBox(
-        height: widget.options.height,
-        width: widget.options.width,
-        child: ElevatedButton.icon(
-          icon: Padding(
-            padding: widget.options.iconPadding ?? EdgeInsets.zero,
-            child: icon,
-          ),
-          label: textWidget,
-          onPressed: onPressed,
-          style: style,
-          iconAlignment: widget.options.iconAlignment ?? IconAlignment.start,
+        // height: widget.options.height,
+        // width: widget.options.width,
+        child: InkWell(
+          onTap: onPressed,
+          child: Container(
+              height: widget.options.height,
+              width: screenWidth(context) * 0.65,
+              // padding: const EdgeInsets.only(top: 12, bottom: 12),
+              decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("assets/images/white_button_background.webp"),
+                    fit: BoxFit.fill,
+                  )),
+              child: Center(child: textWidget)
+          )
         ),
       );
     }
@@ -251,7 +256,7 @@ class _FFButtonWidgetState extends State<FFButtonWidget> {
         // ),
         child: Container(
             height: widget.options.height,
-            width: double.maxFinite,
+            width: screenWidth(context) * 0.65,
             // padding: const EdgeInsets.only(top: 12, bottom: 12),
             decoration: const BoxDecoration(
                 image: DecorationImage(
