@@ -1,3 +1,4 @@
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -76,6 +77,7 @@ class _FFButtonWidgetState extends State<FFButtonWidget> {
   bool loading = false;
 
   int get maxLines => widget.options.maxLines ?? 1;
+
   String? get text =>
       widget.options.textStyle?.fontSize == 0 ? null : widget.text;
 
@@ -235,13 +237,31 @@ class _FFButtonWidgetState extends State<FFButtonWidget> {
     }
 
     return SizedBox(
-      height: widget.options.height,
-      width: widget.options.width,
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: style,
-        child: textWidget,
+      // width: widget.options.width,
+      child: InkWell(
+        onTap: onPressed,
+        // style: style,
+        // child: Stack(
+        //   children: [
+        // Positioned.fill(
+        //   child: SvgPicture.asset(
+        //     "assets/images/button_background.svg",
+        //     fit: BoxFit.fill,
+        //   ),
+        // ),
+        child: Container(
+            height: widget.options.height,
+            width: double.maxFinite,
+            // padding: const EdgeInsets.only(top: 12, bottom: 12),
+            decoration: const BoxDecoration(
+                image: DecorationImage(
+              image: AssetImage("assets/images/button_background.webp"),
+              fit: BoxFit.fill,
+            )),
+            child: Center(child: textWidget)),
+        // ],
       ),
+      // ),
     );
   }
 }

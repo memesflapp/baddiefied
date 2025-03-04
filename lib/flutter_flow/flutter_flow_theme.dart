@@ -57,6 +57,7 @@ abstract class FlutterFlowTheme {
   late Color purpleBackgroundColor;
   late Color primaryGreenColor;
   late Color hintColor;
+  late Color buttonTextColor;
 
   @Deprecated('Use displaySmallFamily instead')
   String get title1Family => displaySmallFamily;
@@ -150,6 +151,7 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color purpleBackgroundColor = const Color(0xff6A35FF);
   late Color primaryGreenColor = const Color(0xffE5FE40);
   late Color hintColor = const Color(0xffB5B5B5);
+  late Color buttonTextColor = const Color(0xff181916);
 }
 
 abstract class Typography {
@@ -326,6 +328,7 @@ class DarkModeTheme extends FlutterFlowTheme {
 late Color purpleBackgroundColor = const Color(0xff6A35FF);
 late Color primaryGreenColor = const Color(0xffE5FE40);
 late Color hintColor = const Color(0xffB5B5B5);
+late Color buttonTextColor = const Color(0xff181916);
 }
 
 extension TextStyleHelper on TextStyle {
