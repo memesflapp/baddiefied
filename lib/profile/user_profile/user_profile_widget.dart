@@ -58,7 +58,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
           title: Text(
             'Hossein Darda',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                  fontFamily: 'Readex Pro',
+
                   fontSize: 18.0,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w500,
@@ -166,7 +166,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Readex Pro',
+
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
@@ -177,7 +177,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Readex Pro',
+
                                       fontSize: 13.0,
                                       letterSpacing: 0.0,
                                     ),
@@ -226,7 +226,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'Readex Pro',
+
                                       color: valueOrDefault<Color>(
                                         Theme.of(context).brightness ==
                                                 Brightness.light
@@ -282,7 +282,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'Readex Pro',
+
                                       color: valueOrDefault<Color>(
                                         Theme.of(context).brightness ==
                                                 Brightness.light
@@ -312,7 +312,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Readex Pro',
+
                                   letterSpacing: 0.0,
                                 ),
                           ),
@@ -349,7 +349,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Readex Pro',
+
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
@@ -374,7 +374,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Readex Pro',
+
                                   letterSpacing: 0.0,
                                 ),
                           ),
@@ -386,7 +386,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Readex Pro',
+
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
@@ -409,7 +409,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Readex Pro',
+
                                   letterSpacing: 0.0,
                                 ),
                           ),
@@ -421,7 +421,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Readex Pro',
+
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,

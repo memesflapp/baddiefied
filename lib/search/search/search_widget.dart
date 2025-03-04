@@ -103,7 +103,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
-                                      fontFamily: 'Readex Pro',
+
                                       letterSpacing: 0.0,
                                     ),
                                 enabledBorder: OutlineInputBorder(
@@ -142,7 +142,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Readex Pro',
+
                                     letterSpacing: 0.0,
                                   ),
                               validator: _model.textControllerValidator
@@ -239,8 +239,6 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),

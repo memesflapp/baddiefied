@@ -73,11 +73,11 @@ class _ProfileUpdateWidgetState extends State<ProfileUpdateWidget> {
                 decoration: InputDecoration(
                   labelText: 'User Name',
                   labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                        fontFamily: 'Readex Pro',
+
                         letterSpacing: 0.0,
                       ),
                   hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                        fontFamily: 'Readex Pro',
+
                         letterSpacing: 0.0,
                       ),
                   enabledBorder: OutlineInputBorder(
@@ -114,7 +114,7 @@ class _ProfileUpdateWidgetState extends State<ProfileUpdateWidget> {
                       const EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
                 ),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Readex Pro',
+
                       letterSpacing: 0.0,
                     ),
                 validator: _model.yourNameTextController1Validator
@@ -130,11 +130,11 @@ class _ProfileUpdateWidgetState extends State<ProfileUpdateWidget> {
                 decoration: InputDecoration(
                   labelText: 'Name',
                   labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                        fontFamily: 'Readex Pro',
+
                         letterSpacing: 0.0,
                       ),
                   hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                        fontFamily: 'Readex Pro',
+
                         letterSpacing: 0.0,
                       ),
                   enabledBorder: OutlineInputBorder(
@@ -171,7 +171,7 @@ class _ProfileUpdateWidgetState extends State<ProfileUpdateWidget> {
                       const EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
                 ),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Readex Pro',
+
                       letterSpacing: 0.0,
                     ),
                 validator: _model.yourNameTextController2Validator
@@ -187,11 +187,11 @@ class _ProfileUpdateWidgetState extends State<ProfileUpdateWidget> {
                 decoration: InputDecoration(
                   labelText: 'About',
                   labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                        fontFamily: 'Readex Pro',
+
                         letterSpacing: 0.0,
                       ),
                   hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                        fontFamily: 'Readex Pro',
+
                         letterSpacing: 0.0,
                       ),
                   enabledBorder: OutlineInputBorder(
@@ -228,7 +228,7 @@ class _ProfileUpdateWidgetState extends State<ProfileUpdateWidget> {
                       const EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
                 ),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Readex Pro',
+
                       letterSpacing: 0.0,
                     ),
                 validator:
@@ -257,7 +257,7 @@ class _ProfileUpdateWidgetState extends State<ProfileUpdateWidget> {
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle:
                         FlutterFlowTheme.of(context).titleMedium.override(
-                              fontFamily: 'Readex Pro',
+
                               color: Colors.white,
                               letterSpacing: 0.0,
                             ),

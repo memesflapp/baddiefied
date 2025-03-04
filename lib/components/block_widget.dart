@@ -88,7 +88,7 @@ class _BlockWidgetState extends State<BlockWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .headlineMedium
                                         .override(
-                                          fontFamily: 'Outfit',
+
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -114,7 +114,7 @@ class _BlockWidgetState extends State<BlockWidget> {
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        fontFamily: 'Readex Pro',
+
                                         color: Colors.white,
                                         letterSpacing: 0.0,
                                       ),

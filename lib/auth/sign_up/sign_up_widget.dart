@@ -132,7 +132,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                       child: Text(
                         'Sign up',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Readex Pro',
+
                               color: valueOrDefault<Color>(
                                 Theme.of(context).brightness == Brightness.dark
                                     ? Colors.white
@@ -148,7 +148,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                     Text(
                       'Username',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Readex Pro',
+
                             fontSize: 14.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w500,
@@ -167,14 +167,14 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                             labelStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
-                                  fontFamily: 'Readex Pro',
+
                                   letterSpacing: 0.0,
                                 ),
                             hintText: 'Enter your username',
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
-                                  fontFamily: 'Readex Pro',
+
                                   letterSpacing: 0.0,
                                 ),
                             enabledBorder: OutlineInputBorder(
@@ -211,7 +211,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
+
                                     letterSpacing: 0.0,
                                   ),
                           cursorColor: FlutterFlowTheme.of(context).primaryText,
@@ -224,7 +224,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                       Text(
                         'Username already present.',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Readex Pro',
+
                               color: const Color(0xFFFD1846),
                               fontSize: 13.0,
                               letterSpacing: 0.0,
@@ -233,7 +233,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                     Text(
                       'Email',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Readex Pro',
+
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w500,
                           ),
@@ -251,14 +251,14 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                             labelStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
-                                  fontFamily: 'Readex Pro',
+
                                   letterSpacing: 0.0,
                                 ),
                             hintText: 'Enter you Email',
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
-                                  fontFamily: 'Readex Pro',
+
                                   letterSpacing: 0.0,
                                 ),
                             enabledBorder: OutlineInputBorder(
@@ -295,7 +295,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
+
                                     letterSpacing: 0.0,
                                   ),
                           keyboardType: TextInputType.emailAddress,
@@ -308,7 +308,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                     Text(
                       'Password',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Readex Pro',
+
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w500,
                           ),
@@ -326,14 +326,14 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                             labelStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
-                                  fontFamily: 'Readex Pro',
+
                                   letterSpacing: 0.0,
                                 ),
                             hintText: '...........',
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
-                                  fontFamily: 'Readex Pro',
+
                                   letterSpacing: 0.0,
                                 ),
                             enabledBorder: OutlineInputBorder(
@@ -383,7 +383,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
+
                                     letterSpacing: 0.0,
                                   ),
                           keyboardType: TextInputType.visiblePassword,
@@ -432,7 +432,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Readex Pro',
+
                                     color: Colors.white,
                                     letterSpacing: 0.0,
                                   ),
@@ -449,7 +449,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                           'Continue with existing account ?',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
+
                                     fontSize: 13.0,
                                     letterSpacing: 0.0,
                                   ),
@@ -511,7 +511,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Readex Pro',
+
                                     color: Colors.white,
                                     letterSpacing: 0.0,
                                   ),
@@ -528,7 +528,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                           'Already have an account ? ',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
+
                                     fontSize: 13.0,
                                     letterSpacing: 0.0,
                                   ),
@@ -549,7 +549,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  fontFamily: 'Readex Pro',
+
                                   color:
                                       FlutterFlowTheme.of(context).primaryText,
                                   fontSize: 13.0,

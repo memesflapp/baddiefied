@@ -169,12 +169,9 @@ flutter:
     - assets/jsons/
 
   fonts:
-    - family: 'Logo'
+    - family: 'Sohne'
       fonts:
-        - asset: assets/fonts/Ibrand.otf
-          weight: 500
-        - asset: assets/fonts/Ibrand.ttf
-          weight: 600
+        - asset: assets/fonts/TestSohneMono.otf
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

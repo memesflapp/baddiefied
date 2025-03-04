@@ -171,7 +171,7 @@ class _PostWidgetState extends State<PostWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Readex Pro',
+
                                       letterSpacing: 0.0,
                                     ),
                               ),
@@ -181,7 +181,7 @@ class _PostWidgetState extends State<PostWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Readex Pro',
+
                                         fontSize: 10.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w300,
@@ -312,7 +312,7 @@ class _PostWidgetState extends State<PostWidget> {
                       Text(
                         columnPostRecord.likes.length.toString(),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Readex Pro',
+
                               fontSize: 17.0,
                               letterSpacing: 0.0,
                             ),
@@ -362,7 +362,7 @@ class _PostWidgetState extends State<PostWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Readex Pro',
+
                                     fontSize: 17.0,
                                     letterSpacing: 0.0,
                                   ),
@@ -432,7 +432,7 @@ class _PostWidgetState extends State<PostWidget> {
                   ),
                   maxLines: 1,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
+
                         letterSpacing: 0.0,
                       ),
                 ),
@@ -471,7 +471,7 @@ class _PostWidgetState extends State<PostWidget> {
                     child: Text(
                       'View All Comment',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Readex Pro',
+
                             fontSize: 12.0,
                             letterSpacing: 1.0,
                             fontWeight: FontWeight.w300,
@@ -490,7 +490,7 @@ class _PostWidgetState extends State<PostWidget> {
                   Text(
                     dateTimeFormat("relative", columnPostRecord.timePosted!),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Readex Pro',
+
                           fontSize: 10.0,
                           letterSpacing: 1.0,
                           fontWeight: FontWeight.w300,

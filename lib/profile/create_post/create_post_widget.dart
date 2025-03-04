@@ -67,7 +67,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                           'Upload Image Memes',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
+
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
                                   ),
@@ -226,7 +226,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
                                                   .override(
-                                                    fontFamily: 'Readex Pro',
+
                                                     letterSpacing: 0.0,
                                                   ),
                                           hintText: 'Enter Caption',
@@ -234,7 +234,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
                                                   .override(
-                                                    fontFamily: 'Readex Pro',
+
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: OutlineInputBorder(
@@ -282,7 +282,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Readex Pro',
+
                                               letterSpacing: 0.0,
                                             ),
                                         maxLines: 7,
@@ -413,7 +413,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
-                                            fontFamily: 'Readex Pro',
+
                                             color: Colors.white,
                                             letterSpacing: 0.0,
                                           ),
@@ -440,7 +440,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                           'Upload Video Memes',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
+
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
                                   ),
@@ -518,7 +518,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  fontFamily: 'Readex Pro',
+
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                   letterSpacing: 0.0,
@@ -577,7 +577,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
                                                   .override(
-                                                    fontFamily: 'Readex Pro',
+
                                                     letterSpacing: 0.0,
                                                   ),
                                           hintText: 'Enter Caption',
@@ -585,7 +585,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium
                                                   .override(
-                                                    fontFamily: 'Readex Pro',
+
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: OutlineInputBorder(
@@ -633,7 +633,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Readex Pro',
+
                                               letterSpacing: 0.0,
                                             ),
                                         maxLines: 12,
@@ -708,7 +708,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
-                                              fontFamily: 'Readex Pro',
+
                                               color: Colors.white,
                                               letterSpacing: 0.0,
                                             ),

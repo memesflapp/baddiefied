@@ -108,7 +108,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                           'Log In',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
+
                                     color: valueOrDefault<Color>(
                                       Theme.of(context).brightness ==
                                               Brightness.dark
@@ -125,7 +125,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                       Text(
                         'Email',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Readex Pro',
+
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w500,
                             ),
@@ -143,14 +143,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                               labelStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    fontFamily: 'Readex Pro',
+
                                     letterSpacing: 0.0,
                                   ),
                               hintText: 'Enter your Email',
                               hintStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    fontFamily: 'Readex Pro',
+
                                     letterSpacing: 0.0,
                                   ),
                               enabledBorder: OutlineInputBorder(
@@ -188,7 +188,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Readex Pro',
+
                                   letterSpacing: 0.0,
                                 ),
                             keyboardType: TextInputType.emailAddress,
@@ -202,7 +202,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                       Text(
                         'Password',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Readex Pro',
+
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w500,
                             ),
@@ -220,14 +220,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                               labelStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    fontFamily: 'Readex Pro',
+
                                     letterSpacing: 0.0,
                                   ),
                               hintText: '..........',
                               hintStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    fontFamily: 'Readex Pro',
+
                                     letterSpacing: 0.0,
                                   ),
                               enabledBorder: OutlineInputBorder(
@@ -278,7 +278,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Readex Pro',
+
                                   letterSpacing: 0.0,
                                 ),
                             cursorColor:
@@ -297,7 +297,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Readex Pro',
+
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
                                 ),
@@ -333,7 +333,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  fontFamily: 'Readex Pro',
+
                                   color: Colors.white,
                                   letterSpacing: 0.0,
                                 ),
@@ -351,7 +351,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Readex Pro',
+
                                   fontSize: 13.0,
                                   letterSpacing: 0.0,
                                 ),
@@ -387,7 +387,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  fontFamily: 'Readex Pro',
+
                                   color: Colors.white,
                                   letterSpacing: 0.0,
                                 ),
@@ -405,7 +405,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Readex Pro',
+
                                   fontSize: 13.0,
                                   letterSpacing: 0.0,
                                 ),
@@ -423,7 +423,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Readex Pro',
+
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
                                     fontSize: 13.0,

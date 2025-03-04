@@ -65,7 +65,7 @@ class _PostdetailsWidgetState extends State<PostdetailsWidget> {
           title: Text(
             'Post Details',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Outfit',
+
                   color: FlutterFlowTheme.of(context).primaryText,
                   fontSize: 22.0,
                   letterSpacing: 0.0,

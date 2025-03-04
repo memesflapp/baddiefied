@@ -50,7 +50,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               Text(
                 'Flapp.Meme',
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Logo',
+
                       color: FlutterFlowTheme.of(context).primaryText,
                       fontSize: 26.0,
                       letterSpacing: 2.0,

@@ -181,107 +181,107 @@ class ThemeTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Outfit';
-  TextStyle get displayLarge => GoogleFonts.getFont(
-        'Outfit',
+  String get displayLargeFamily => 'Sohne';
+  TextStyle get displayLarge => TextStyle(
+        fontFamily: displayLargeFamily,
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 64.0,
       );
-  String get displayMediumFamily => 'Outfit';
-  TextStyle get displayMedium => GoogleFonts.getFont(
-        'Outfit',
+  String get displayMediumFamily => 'Sohne';
+  TextStyle get displayMedium => TextStyle(
+    fontFamily: displayMediumFamily,
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 44.0,
       );
-  String get displaySmallFamily => 'Outfit';
-  TextStyle get displaySmall => GoogleFonts.getFont(
-        'Outfit',
+  String get displaySmallFamily => 'Sohne';
+  TextStyle get displaySmall => TextStyle(
+        fontFamily: displaySmallFamily,
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 36.0,
       );
-  String get headlineLargeFamily => 'Outfit';
-  TextStyle get headlineLarge => GoogleFonts.getFont(
-        'Outfit',
+  String get headlineLargeFamily => 'Sohne';
+  TextStyle get headlineLarge => TextStyle(
+        fontFamily: headlineLargeFamily,
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'Outfit';
-  TextStyle get headlineMedium => GoogleFonts.getFont(
-        'Outfit',
+  String get headlineMediumFamily => 'Sohne';
+  TextStyle get headlineMedium => TextStyle(
+        fontFamily: headlineMediumFamily,
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 24.0,
       );
-  String get headlineSmallFamily => 'Outfit';
-  TextStyle get headlineSmall => GoogleFonts.getFont(
-        'Outfit',
+  String get headlineSmallFamily => 'Sohne';
+  TextStyle get headlineSmall => TextStyle(
+        fontFamily: headlineSmallFamily,
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 24.0,
       );
-  String get titleLargeFamily => 'Outfit';
-  TextStyle get titleLarge => GoogleFonts.getFont(
-        'Outfit',
+  String get titleLargeFamily => 'Sohne';
+  TextStyle get titleLarge => TextStyle(
+        fontFamily: titleLargeFamily,
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
-  String get titleMediumFamily => 'Readex Pro';
-  TextStyle get titleMedium => GoogleFonts.getFont(
-        'Readex Pro',
+  String get titleMediumFamily => 'Sohne';
+  TextStyle get titleMedium => TextStyle(
+        fontFamily: titleMediumFamily,
         color: theme.info,
         fontWeight: FontWeight.normal,
         fontSize: 18.0,
       );
-  String get titleSmallFamily => 'Readex Pro';
-  TextStyle get titleSmall => GoogleFonts.getFont(
-        'Readex Pro',
+  String get titleSmallFamily => 'Sohne';
+  TextStyle get titleSmall => TextStyle(
+        fontFamily: titleSmallFamily,
         color: theme.info,
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
-  String get labelLargeFamily => 'Readex Pro';
-  TextStyle get labelLarge => GoogleFonts.getFont(
-        'Readex Pro',
+  String get labelLargeFamily => 'Sohne';
+  TextStyle get labelLarge => TextStyle(
+        fontFamily: labelLargeFamily,
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get labelMediumFamily => 'Readex Pro';
-  TextStyle get labelMedium => GoogleFonts.getFont(
-        'Readex Pro',
+  String get labelMediumFamily => 'Sohne';
+  TextStyle get labelMedium => TextStyle(
+        fontFamily: labelMediumFamily,
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get labelSmallFamily => 'Readex Pro';
-  TextStyle get labelSmall => GoogleFonts.getFont(
-        'Readex Pro',
+  String get labelSmallFamily => 'Sohne';
+  TextStyle get labelSmall => TextStyle(
+        fontFamily: labelSmallFamily,
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );
-  String get bodyLargeFamily => 'Readex Pro';
-  TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Readex Pro',
+  String get bodyLargeFamily => 'Sohne';
+  TextStyle get bodyLarge => TextStyle(
+    fontFamily: bodyLargeFamily,
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Readex Pro';
-  TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Readex Pro',
+  String get bodyMediumFamily => 'Sohne';
+  TextStyle get bodyMedium => TextStyle(
+        fontFamily: bodyMediumFamily,
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Readex Pro';
-  TextStyle get bodySmall => GoogleFonts.getFont(
-        'Readex Pro',
+  String get bodySmallFamily => 'Sohne';
+  TextStyle get bodySmall => TextStyle(
+        fontFamily: bodySmallFamily,
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
@@ -322,7 +322,7 @@ extension TextStyleHelper on TextStyle {
     FontWeight? fontWeight,
     double? letterSpacing,
     FontStyle? fontStyle,
-    bool useGoogleFonts = true,
+    bool useGoogleFonts = false,
     TextDecoration? decoration,
     double? lineHeight,
     List<Shadow>? shadows,

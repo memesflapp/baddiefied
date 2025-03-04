@@ -58,7 +58,7 @@ class _SignOutWidgetState extends State<SignOutWidget> {
             Text(
               'Sign Out',
               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                    fontFamily: 'Readex Pro',
+
                     color: FlutterFlowTheme.of(context).primaryText,
                     fontSize: 20.0,
                     letterSpacing: 0.0,
@@ -68,7 +68,7 @@ class _SignOutWidgetState extends State<SignOutWidget> {
             Text(
               'Sure you want to log out?',
               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                    fontFamily: 'Readex Pro',
+
                     fontSize: 18.0,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.w500,
@@ -81,7 +81,7 @@ class _SignOutWidgetState extends State<SignOutWidget> {
                 Text(
                   'Cancle',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
+
                         fontSize: 16.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w500,
@@ -102,7 +102,7 @@ class _SignOutWidgetState extends State<SignOutWidget> {
                   child: Text(
                     'Sign Out',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Readex Pro',
+
                           fontSize: 16.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w500,

@@ -214,7 +214,7 @@ class _CommentPostWidgetState extends State<CommentPostWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Readex Pro',
+
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -301,7 +301,7 @@ class _CommentPostWidgetState extends State<CommentPostWidget> {
                                                       context)
                                                   .labelSmall
                                                   .override(
-                                                    fontFamily: 'Readex Pro',
+
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryText,
@@ -318,7 +318,7 @@ class _CommentPostWidgetState extends State<CommentPostWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Readex Pro',
+
                                             letterSpacing: 0.0,
                                           ),
                                     ),
@@ -331,7 +331,7 @@ class _CommentPostWidgetState extends State<CommentPostWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .labelSmall
                                               .override(
-                                                fontFamily: 'Readex Pro',
+
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
@@ -399,7 +399,7 @@ class _CommentPostWidgetState extends State<CommentPostWidget> {
                         ),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Readex Pro',
+
                             letterSpacing: 0.0,
                           ),
                       maxLines: 100,
@@ -450,7 +450,7 @@ class _CommentPostWidgetState extends State<CommentPostWidget> {
                       color: FlutterFlowTheme.of(context).primary,
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
-                                fontFamily: 'Readex Pro',
+
                                 color: Colors.white,
                                 fontSize: 15.0,
                                 letterSpacing: 0.0,

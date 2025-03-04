@@ -77,13 +77,13 @@ class _MenuWidgetState extends State<MenuWidget> {
                     isDense: false,
                     labelStyle:
                         FlutterFlowTheme.of(context).labelMedium.override(
-                              fontFamily: 'Readex Pro',
+
                               letterSpacing: 0.0,
                             ),
                     hintText: 'Enter the reason to report this profile.',
                     hintStyle:
                         FlutterFlowTheme.of(context).labelMedium.override(
-                              fontFamily: 'Readex Pro',
+
                               letterSpacing: 0.0,
                             ),
                     enabledBorder: OutlineInputBorder(
@@ -118,7 +118,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                     fillColor: FlutterFlowTheme.of(context).secondaryBackground,
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
+
                         letterSpacing: 0.0,
                       ),
                   maxLines: 4,
@@ -152,7 +152,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                 iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 color: const Color(0xFF7F0C00),
                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                      fontFamily: 'Readex Pro',
+
                       color: Colors.white,
                       letterSpacing: 0.0,
                     ),

@@ -57,7 +57,7 @@ class _FollowingWidgetState extends State<FollowingWidget> {
           title: Text(
             'Following',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                  fontFamily: 'Readex Pro',
+
                   fontSize: 18.0,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w500,
@@ -132,7 +132,7 @@ class _FollowingWidgetState extends State<FollowingWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Readex Pro',
+
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -177,7 +177,7 @@ class _FollowingWidgetState extends State<FollowingWidget> {
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
-                                          fontFamily: 'Readex Pro',
+
                                           color: FlutterFlowTheme.of(context)
                                               .primaryBackground,
                                           letterSpacing: 0.0,
