@@ -1,3 +1,5 @@
+import 'package:flapp/utils/generics.dart';
+
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/comment_post_widget.dart';
@@ -76,7 +78,8 @@ class _PostWidgetState extends State<PostWidget> {
           mainAxisSize: MainAxisSize.max,
           children: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+              padding:
+                  const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
               child: StreamBuilder<UserRecord>(
                 stream: _model.user(
                   requestFn: () =>
@@ -171,7 +174,6 @@ class _PostWidgetState extends State<PostWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-
                                       letterSpacing: 0.0,
                                     ),
                               ),
@@ -181,7 +183,6 @@ class _PostWidgetState extends State<PostWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-
                                         fontSize: 10.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w300,
@@ -228,6 +229,7 @@ class _PostWidgetState extends State<PostWidget> {
                 },
               ),
             ),
+            // post
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(0.0, 9.0, 0.0, 0.0),
               child: ClipRRect(
@@ -248,8 +250,10 @@ class _PostWidgetState extends State<PostWidget> {
                 ),
               ),
             ),
+
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(10.0, 8.0, 10.0, 0.0),
+              padding:
+                  const EdgeInsets.only(top: 8, left: 16, right: 16),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -310,140 +314,15 @@ class _PostWidgetState extends State<PostWidget> {
                         },
                       ),
                       Text(
-                        columnPostRecord.likes.length.toString(),
+                        "${columnPostRecord.likes.length.toString()} Reactions",
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-
-                              fontSize: 17.0,
-                              letterSpacing: 0.0,
-                            ),
+                            fontSize: 12.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w900,
+                            color: FlutterFlowTheme.of(context).dividerColor),
                       ),
                     ].divide(const SizedBox(width: 10.0)),
                   ),
-                  Expanded(
-                    child: Align(
-                      alignment: const AlignmentDirectional(-1.0, 0.0),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          await showModalBottomSheet(
-                            isScrollControlled: true,
-                            backgroundColor: Colors.transparent,
-                            enableDrag: false,
-                            context: context,
-                            builder: (context) {
-                              return Padding(
-                                padding: MediaQuery.viewInsetsOf(context),
-                                child: SizedBox(
-                                  height: 500.0,
-                                  child: CommentPostWidget(
-                                    post: columnPostRecord.reference,
-                                  ),
-                                ),
-                              );
-                            },
-                          ).then((value) => safeSetState(() {}));
-                        },
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            FaIcon(
-                              FontAwesomeIcons.comment,
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              size: 24.0,
-                            ),
-                            Text(
-                              valueOrDefault<String>(
-                                columnPostRecord.comments.length.toString(),
-                                '0',
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-
-                                    fontSize: 17.0,
-                                    letterSpacing: 0.0,
-                                  ),
-                            ),
-                          ].divide(const SizedBox(width: 5.0)),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Builder(
-                        builder: (context) {
-                          if (!(currentUserDocument?.saved.toList() ?? [])
-                              .contains(widget.postRef)) {
-                            return FlutterFlowIconButton(
-                              borderRadius: 8.0,
-                              buttonSize: 40.0,
-                              fillColor: FlutterFlowTheme.of(context).primary,
-                              icon: const Icon(
-                                Icons.bookmark_border,
-                                size: 24.0,
-                              ),
-                              showLoadingIndicator: true,
-                              onPressed: () {
-                                print('IconButton pressed ...');
-                              },
-                            );
-                          } else {
-                            return FlutterFlowIconButton(
-                              borderRadius: 8.0,
-                              buttonSize: 40.0,
-                              fillColor: FlutterFlowTheme.of(context).primary,
-                              icon: const Icon(
-                                Icons.bookmark_rounded,
-                                color: Color(0xFFFB4852),
-                                size: 24.0,
-                              ),
-                              onPressed: () async {
-                                await currentUserReference!.update({
-                                  ...mapToFirestore(
-                                    {
-                                      'saved': FieldValue.arrayRemove(
-                                          [widget.postRef]),
-                                    },
-                                  ),
-                                });
-                              },
-                            );
-                          }
-                        },
-                      ),
-                    ].divide(const SizedBox(width: 5.0)),
-                  ),
-                ].divide(const SizedBox(width: 20.0)),
-              ),
-            ),
-            Align(
-              alignment: const AlignmentDirectional(-1.0, 0.0),
-              child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 0.0),
-                child: Text(
-                  columnPostRecord.postDescription.maybeHandleOverflow(
-                    maxChars: 60,
-                    replacement: '…',
-                  ),
-                  maxLines: 1,
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-
-                        letterSpacing: 0.0,
-                      ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(10.0, 8.0, 10.0, 0.0),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
                   InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -469,34 +348,122 @@ class _PostWidgetState extends State<PostWidget> {
                       ).then((value) => safeSetState(() {}));
                     },
                     child: Text(
-                      'View All Comment',
+                      valueOrDefault<String>(
+                        "${columnPostRecord.comments.length.toString()} Comment${columnPostRecord.comments.length > 1 ? 's' : ''}",
+                        '0 Comments',
+                      ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-
-                            fontSize: 12.0,
-                            letterSpacing: 1.0,
-                            fontWeight: FontWeight.w300,
-                          ),
+                          fontSize: 12.0,
+                          letterSpacing: 0.0,
+                          fontWeight: FontWeight.w900,
+                          color: FlutterFlowTheme.of(context).dividerColor),
                     ),
                   ),
-                ].divide(const SizedBox(width: 25.0)),
+                ].divide(const SizedBox(width: 20.0)),
+              ),
+            ),
+            // divider
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Divider(
+                color: FlutterFlowTheme.of(context).dividerColor,
+                thickness: 1,
+                height: 1,
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(10.0, 8.0, 10.0, 0.0),
+              padding: const EdgeInsets.only(left: 16.0, right: 16),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    dateTimeFormat("relative", columnPostRecord.timePosted!),
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-
-                          fontSize: 10.0,
-                          letterSpacing: 1.0,
-                          fontWeight: FontWeight.w300,
-                        ),
+                  Container(
+                    padding: const EdgeInsets.only(top: 12, bottom: 12, left: 24, right: 24),
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(image: AssetImage("assets/images/white_small_background.webp"),
+                          fit: BoxFit.fill),
+                    ),
+                    child: Center(
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.favorite_border,
+                            color: FlutterFlowTheme.of(context).primaryText,
+                            size: 16.0,
+                          ),
+                          Text(
+                            "Like",
+                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                fontSize: 12.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w900,
+                                color: FlutterFlowTheme.of(context).dividerColor),
+                          ),
+                        ].divide(const SizedBox(width: 7.0)),
+                      ),
+                    ),
                   ),
-                ].divide(const SizedBox(width: 25.0)),
+                  Container(
+                    padding: const EdgeInsets.only(top: 12, bottom: 12, left: 24, right: 24),
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(image: AssetImage("assets/images/white_small_background.webp"),
+                          fit: BoxFit.fitHeight),
+                    ),
+                    child: Center(
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.mode_comment_outlined,
+                            color: FlutterFlowTheme.of(context).primaryText,
+                            size: 16.0,
+                          ),
+                          Text(
+                            "Comment",
+                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                fontSize: 12.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w900,
+                                color: FlutterFlowTheme.of(context).dividerColor),
+                          ),
+                        ].divide(const SizedBox(width: 7.0)),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.only(top: 12, bottom: 12, left: 24, right: 24),
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(image: AssetImage("assets/images/white_small_background.webp"),
+                          fit: BoxFit.fill),
+                    ),
+                    child: Center(
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.share_outlined,
+                            color: FlutterFlowTheme.of(context).primaryText,
+                            size: 16.0,
+                          ),
+                          Text(
+                            "Share",
+                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                fontSize: 12.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w900,
+                                color: FlutterFlowTheme.of(context).dividerColor),
+                          ),
+                        ].divide(const SizedBox(width: 7.0)),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 24.0),
+              child: Divider(
+                color: FlutterFlowTheme.of(context).thickDividerColor,
+                thickness: 4,
+                height: 4,
               ),
             ),
           ],
