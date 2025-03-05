@@ -59,94 +59,114 @@ class _SearchWidgetState extends State<SearchWidget> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Expanded(
-                            child: TextFormField(
-                              controller: _model.textController,
-                              focusNode: _model.textFieldFocusNode,
-                              onChanged: (_) => EasyDebounce.debounce(
-                                '_model.textController',
-                                const Duration(milliseconds: 0),
-                                () async {
-                                  await queryUserRecordOnce()
-                                      .then(
-                                        (records) => _model
-                                            .simpleSearchResults = TextSearch(
-                                          records
-                                              .map(
-                                                (record) =>
-                                                    TextSearchItem.fromTerms(
-                                                        record, [
-                                                  record.displayName,
-                                                  record.username
-                                                ]),
+                            child: Container(
+                              decoration: const BoxDecoration(
+                                  image: DecorationImage(image: AssetImage("assets/images/text_box_background.webp"),
+                                  fit: BoxFit.fill)
+                              ),
+                              child: Row(
+                                children: [
+                                  const Padding(
+                                    padding: EdgeInsets.only(left: 16.0),
+                                    child: Icon(Icons.search),
+                                  ),
+                                  Expanded(
+                                    child: TextFormField(
+                                      controller: _model.textController,
+                                      focusNode: _model.textFieldFocusNode,
+                                      onChanged: (_) => EasyDebounce.debounce(
+                                        '_model.textController',
+                                        const Duration(milliseconds: 0),
+                                        () async {
+                                          await queryUserRecordOnce()
+                                              .then(
+                                                (records) => _model
+                                                    .simpleSearchResults = TextSearch(
+                                                  records
+                                                      .map(
+                                                        (record) =>
+                                                            TextSearchItem.fromTerms(
+                                                                record, [
+                                                          record.displayName,
+                                                          record.username
+                                                        ]),
+                                                      )
+                                                      .toList(),
+                                                )
+                                                    .search(_model.textController.text)
+                                                    .map((r) => r.object)
+                                                    .toList(),
                                               )
-                                              .toList(),
-                                        )
-                                            .search(_model.textController.text)
-                                            .map((r) => r.object)
-                                            .toList(),
-                                      )
-                                      .onError((_, __) =>
-                                          _model.simpleSearchResults = [])
-                                      .whenComplete(() => safeSetState(() {}));
-                                },
-                              ),
-                              autofocus: true,
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                labelText: 'Search members...',
-                                labelStyle: FlutterFlowTheme.of(context)
-                                    .labelMedium
-                                    .override(
-
-                                      letterSpacing: 0.0,
+                                              .onError((_, __) =>
+                                                  _model.simpleSearchResults = [])
+                                              .whenComplete(() => safeSetState(() {}));
+                                        },
+                                      ),
+                                      autofocus: true,
+                                      obscureText: false,
+                                      decoration: InputDecoration(
+                                        isDense: false,
+                                        labelStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .override(
+                                          letterSpacing: 0.0,
+                                        ),
+                                        hintText: 'Search memes or people',
+                                        hintStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                            color: FlutterFlowTheme.of(context)
+                                                .hintColor),
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: const BorderSide(
+                                            color: Color(0x5257636C),
+                                            width: 1.0,
+                                          ),
+                                          borderRadius: BorderRadius.circular(8.0),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: const BorderSide(
+                                            color: Color(0x00000000),
+                                            width: 1.0,
+                                          ),
+                                          borderRadius: BorderRadius.circular(8.0),
+                                        ),
+                                        errorBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context).error,
+                                            width: 1.0,
+                                          ),
+                                          borderRadius: BorderRadius.circular(8.0),
+                                        ),
+                                        focusedErrorBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context).error,
+                                            width: 1.0,
+                                          ),
+                                          borderRadius: BorderRadius.circular(8.0),
+                                        ),
+                                        // filled: true,
+                                        // fillColor: FlutterFlowTheme.of(context)
+                                        //     .secondaryBackground,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            letterSpacing: 0.0,
+                                          ),
+                                      validator: _model.textControllerValidator
+                                          .asValidator(context),
                                     ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    width: 0.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(12.0),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    width: 0.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(12.0),
-                                ),
-                                errorBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).error,
-                                    width: 0.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(12.0),
-                                ),
-                                focusedErrorBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).error,
-                                    width: 0.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(12.0),
-                                ),
-                                filled: true,
-                                fillColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
+                                ],
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-
-                                    letterSpacing: 0.0,
-                                  ),
-                              validator: _model.textControllerValidator
-                                  .asValidator(context),
                             ),
                           ),
                         ],
