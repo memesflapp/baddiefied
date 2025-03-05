@@ -199,7 +199,7 @@ class _PostWidgetState extends State<PostWidget> {
                           fillColor:
                               FlutterFlowTheme.of(context).primaryBackground,
                           icon: Icon(
-                            Icons.keyboard_control_outlined,
+                            Icons.more_vert,
                             color: FlutterFlowTheme.of(context).primaryText,
                             size: 24.0,
                           ),

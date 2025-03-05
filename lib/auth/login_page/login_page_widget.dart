@@ -403,7 +403,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                     ),
                 //   ],
                 // )
-
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,

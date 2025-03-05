@@ -574,7 +574,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                           ),
                     ),
                     const SizedBox(height: 12.0),
-                    FFButtonWidget(
+                    FFButtonWidget( // todo: solve exceptions
                       onPressed: () async {
                         context.pushNamed('LoginPage');
                       },
