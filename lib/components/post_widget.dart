@@ -415,8 +415,8 @@ class _PostWidgetState extends State<PostWidget> {
                     child: Center(
                       child: Row(
                         children: [
-                          Icon(
-                            Icons.mode_comment_outlined,
+                          FaIcon(
+                            FontAwesomeIcons.comment,
                             color: FlutterFlowTheme.of(context).primaryText,
                             size: 16.0,
                           ),
