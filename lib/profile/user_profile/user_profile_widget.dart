@@ -1,3 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
+import '../../utils/generics.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -58,7 +61,6 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
           title: Text(
             'Hossein Darda',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
-
                   fontSize: 18.0,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w500,
@@ -66,7 +68,8 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
           ),
           actions: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+              padding:
+                  const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -135,306 +138,297 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
               return Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
+                  Container(
+                    width: screenWidth(context) * 0.22,
+                    height: screenWidth(context) * 0.22,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: FlutterFlowTheme.of(context)
+                            .purpleBackgroundColor,
+                        // Customize the border color
+                        width: 2, // Customize the border width
+                      ),
+                    ),
+                    padding: const EdgeInsets.all(4),
+                    child: Container(
+                      clipBehavior: Clip.antiAlias,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(
+                            8), // Customize the inner border radius
+                      ),
+                      child: CachedNetworkImage(
+                        imageUrl: valueOrDefault<String>(
+                          columnUserRecord.photoUrl,
+                          'https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg',
+                        ),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 8,),
+                  Text(
+                    columnUserRecord.displayName,
+                    style: FlutterFlowTheme.of(context)
+                        .bodyMedium
+                        .override(
+                        fontSize: 20.0,
+                        letterSpacing: 0.0,
+                        fontWeight: FontWeight.w900,
+                        color: FlutterFlowTheme.of(context)
+                            .purpleBackgroundColor
+                    ),
+                  ),
+                  Text(
+                    columnUserRecord.bio,
+                    style: FlutterFlowTheme.of(context)
+                        .bodyMedium
+                        .override(
+                        fontSize: 14.0,
+                        letterSpacing: 0.0,
+                        fontWeight: FontWeight.w400,
+                        color: FlutterFlowTheme.of(context)
+                            .dividerColor
+                    ),
+                  ),
                   Padding(
-                    padding: const EdgeInsets.all(10.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        48.0, 16.0, 48.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          width: MediaQuery.sizeOf(context).width * 0.12,
-                          height: MediaQuery.sizeOf(context).width * 0.12,
-                          clipBehavior: Clip.antiAlias,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                          ),
-                          child: Image.network(
-                            valueOrDefault<String>(
-                              columnUserRecord.photoUrl,
-                              'https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg',
-                            ),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        Expanded(
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                columnUserRecord.displayName,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-
-                                      fontSize: 16.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                              ),
-                              Text(
-                                columnUserRecord.bio,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-
-                                      fontSize: 13.0,
-                                      letterSpacing: 0.0,
-                                    ),
-                              ),
-                            ].divide(const SizedBox(height: 8.0)),
-                          ),
-                        ),
-                        if ((currentUserDocument?.following.toList() ?? [])
-                            .contains(columnUserRecord.reference))
-                          AuthUserStreamWidget(
-                            builder: (context) => FFButtonWidget(
-                              onPressed: () async {
-                                await currentUserReference!.update({
-                                  ...mapToFirestore(
-                                    {
-                                      'following': FieldValue.arrayRemove(
-                                          [columnUserRecord.reference]),
-                                    },
-                                  ),
-                                });
-
-                                await columnUserRecord.reference.update({
-                                  ...mapToFirestore(
-                                    {
-                                      'followers': FieldValue.arrayRemove(
-                                          [currentUserReference]),
-                                    },
-                                  ),
-                                });
-                              },
-                              text: 'Unfollow',
-                              options: FFButtonOptions(
-                                width: 100.0,
-                                height: 40.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: valueOrDefault<Color>(
-                                  Theme.of(context).brightness ==
-                                          Brightness.light
-                                      ? Colors.black
-                                      : Colors.white,
-                                  Colors.black,
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            StreamBuilder<List<PostRecord>>(
+                              stream: queryPostRecord(
+                                queryBuilder: (postRecord) => postRecord.where(
+                                  'user_ref',
+                                  isEqualTo: widget.userRef,
                                 ),
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-
-                                      color: valueOrDefault<Color>(
-                                        Theme.of(context).brightness ==
-                                                Brightness.light
-                                            ? Colors.white
-                                            : Colors.black,
-                                        Colors.white,
-                                      ),
-                                      letterSpacing: 0.0,
-                                    ),
-                                elevation: 0.0,
-                                borderRadius: BorderRadius.circular(8.0),
                               ),
-                            ),
-                          ),
-                        if (!(currentUserDocument?.following.toList() ?? [])
-                            .contains(columnUserRecord.reference))
-                          AuthUserStreamWidget(
-                            builder: (context) => FFButtonWidget(
-                              onPressed: () async {
-                                await currentUserReference!.update({
-                                  ...mapToFirestore(
-                                    {
-                                      'following': FieldValue.arrayUnion(
-                                          [columnUserRecord.reference]),
-                                    },
-                                  ),
-                                });
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: CircularProgressIndicator(
+                                        valueColor: AlwaysStoppedAnimation<Color>(
+                                          FlutterFlowTheme.of(context).primary,
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                }
+                                List<PostRecord> textPostRecordList =
+                                    snapshot.data!;
 
-                                await columnUserRecord.reference.update({
-                                  ...mapToFirestore(
-                                    {
-                                      'followers': FieldValue.arrayUnion(
-                                          [currentUserReference]),
-                                    },
+                                return Text(
+                                  formatNumber(
+                                    textPostRecordList.length,
+                                    formatType: FormatType.compact,
                                   ),
-                                });
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                          fontSize: 14.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w900,
+                                          color: FlutterFlowTheme.of(context)
+                                              .dividerColor),
+                                );
                               },
-                              text: 'Follow',
-                              options: FFButtonOptions(
-                                width: 100.0,
-                                height: 40.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: valueOrDefault<Color>(
-                                  Theme.of(context).brightness ==
-                                          Brightness.light
-                                      ? Colors.black
-                                      : Colors.white,
-                                  Colors.black,
-                                ),
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-
-                                      color: valueOrDefault<Color>(
-                                        Theme.of(context).brightness ==
-                                                Brightness.light
-                                            ? Colors.white
-                                            : Colors.black,
-                                        Colors.white,
-                                      ),
-                                      letterSpacing: 0.0,
-                                    ),
-                                elevation: 0.0,
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
                             ),
-                          ),
-                      ].divide(const SizedBox(width: 10.0)),
+                            Text(
+                              'POSTS',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                      fontFamily: 'Noto Sans',
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 12,
+                                      color: FlutterFlowTheme.of(context)
+                                          .dividerColor),
+                            ),
+                          ].divide(const SizedBox(height: 7.0)),
+                        ),
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Text(
+                              formatNumber(
+                                columnUserRecord.followers.length,
+                                formatType: FormatType.compact,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                      fontSize: 14.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w900,
+                                      color: FlutterFlowTheme.of(context)
+                                          .dividerColor),
+                            ),
+                            Text(
+                              'FOLLOWERS',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                      fontFamily: 'Noto Sans',
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 12,
+                                      color: FlutterFlowTheme.of(context)
+                                          .dividerColor),
+                            ),
+                          ].divide(const SizedBox(height: 7.0)),
+                        ),
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Text(
+                              formatNumber(
+                                columnUserRecord.following.length,
+                                formatType: FormatType.compact,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                  fontSize: 14.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w900,
+                                  color:
+                                  FlutterFlowTheme.of(context)
+                                      .dividerColor
+                                  ),
+                            ),
+                            Text(
+                              'FOLLOWING',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                  fontFamily: 'Noto Sans',
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 12,
+                                  color:
+                                  FlutterFlowTheme.of(context)
+                                      .dividerColor),
+                            ),
+                          ].divide(const SizedBox(height: 7.0)),
+                        ),
+                      ],
                     ),
                   ),
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Text(
-                            'Post',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-
-                                  letterSpacing: 0.0,
-                                ),
-                          ),
-                          StreamBuilder<List<PostRecord>>(
-                            stream: queryPostRecord(
-                              queryBuilder: (postRecord) => postRecord.where(
-                                'user_ref',
-                                isEqualTo: widget.userRef,
-                              ),
+                  const SizedBox(height: 16,),
+                  if ((currentUserDocument?.following.toList() ?? [])
+                      .contains(columnUserRecord.reference))
+                    AuthUserStreamWidget(
+                      builder: (context) => FFButtonWidget(
+                        onPressed: () async {
+                          await currentUserReference!.update({
+                            ...mapToFirestore(
+                              {
+                                'following': FieldValue.arrayRemove(
+                                    [columnUserRecord.reference]),
+                              },
                             ),
-                            builder: (context, snapshot) {
-                              // Customize what your widget looks like when it's loading.
-                              if (!snapshot.hasData) {
-                                return Center(
-                                  child: SizedBox(
-                                    width: 50.0,
-                                    height: 50.0,
-                                    child: CircularProgressIndicator(
-                                      valueColor: AlwaysStoppedAnimation<Color>(
-                                        FlutterFlowTheme.of(context).primary,
-                                      ),
-                                    ),
+                          });
+
+                          await columnUserRecord.reference.update({
+                            ...mapToFirestore(
+                              {
+                                'followers': FieldValue.arrayRemove(
+                                    [currentUserReference]),
+                              },
+                            ),
+                          });
+                        },
+                        text: 'Unfollow',
+                        options: FFButtonOptions(
+                          height: 50.0,
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 0.0),
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: valueOrDefault<Color>(
+                            Theme.of(context).brightness == Brightness.light
+                                ? Colors.black
+                                : Colors.white,
+                            Colors.black,
+                          ),
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w900,
+                                    color: FlutterFlowTheme.of(context)
+                                        .buttonTextColor,
+                                    letterSpacing: 0.0,
                                   ),
-                                );
-                              }
-                              List<PostRecord> textPostRecordList =
-                                  snapshot.data!;
-
-                              return Text(
-                                formatNumber(
-                                  textPostRecordList.length,
-                                  formatType: FormatType.compact,
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-
-                                      fontSize: 16.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                              );
-                            },
-                          ),
-                        ].divide(const SizedBox(height: 7.0)),
-                      ),
-                      SizedBox(
-                        height: 50.0,
-                        child: VerticalDivider(
-                          thickness: 2.0,
-                          color: FlutterFlowTheme.of(context).alternate,
+                          elevation: 0.0,
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
                       ),
-                      Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Text(
-                            'Followers',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-
-                                  letterSpacing: 0.0,
-                                ),
-                          ),
-                          Text(
-                            formatNumber(
-                              columnUserRecord.followers.length,
-                              formatType: FormatType.compact,
+                    ),
+                  if (!(currentUserDocument?.following.toList() ?? [])
+                      .contains(columnUserRecord.reference))
+                    AuthUserStreamWidget(
+                      builder: (context) => FFButtonWidget(
+                        onPressed: () async {
+                          await currentUserReference!.update({
+                            ...mapToFirestore(
+                              {
+                                'following': FieldValue.arrayUnion(
+                                    [columnUserRecord.reference]),
+                              },
                             ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
+                          });
 
-                                  fontSize: 16.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w600,
-                                ),
+                          await columnUserRecord.reference.update({
+                            ...mapToFirestore(
+                              {
+                                'followers': FieldValue.arrayUnion(
+                                    [currentUserReference]),
+                              },
+                            ),
+                          });
+                        },
+                        text: 'Follow',
+                        options: FFButtonOptions(
+                          height: 50.0,
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 0.0),
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: valueOrDefault<Color>(
+                            Theme.of(context).brightness == Brightness.light
+                                ? Colors.black
+                                : Colors.white,
+                            Colors.black,
                           ),
-                        ].divide(const SizedBox(height: 7.0)),
-                      ),
-                      SizedBox(
-                        height: 50.0,
-                        child: VerticalDivider(
-                          thickness: 2.0,
-                          color: FlutterFlowTheme.of(context).alternate,
+                          textStyle: FlutterFlowTheme.of(context)
+                              .titleSmall
+                              .override(
+                                  color: FlutterFlowTheme.of(context)
+                                      .buttonTextColor,
+                                  letterSpacing: 0.0,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w900),
+                          elevation: 0.0,
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
                       ),
-                      Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Text(
-                            'Following',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-
-                                  letterSpacing: 0.0,
-                                ),
-                          ),
-                          Text(
-                            formatNumber(
-                              columnUserRecord.following.length,
-                              formatType: FormatType.compact,
-                            ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-
-                                  fontSize: 16.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                          ),
-                        ].divide(const SizedBox(height: 7.0)),
-                      ),
-                    ],
-                  ),
+                    ),
                   Expanded(
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 10.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          10.0, 20.0, 10.0, 0.0),
                       child: StreamBuilder<List<PostRecord>>(
                         stream: _model.uuu(
                           requestFn: () => queryPostRecord(
