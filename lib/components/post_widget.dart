@@ -143,7 +143,10 @@ class _PostWidgetState extends State<PostWidget> {
                           child: CachedNetworkImage(
                             fadeInDuration: const Duration(milliseconds: 500),
                             fadeOutDuration: const Duration(milliseconds: 500),
-                            imageUrl: rowUserRecord.photoUrl,
+                            imageUrl: valueOrDefault<String>(
+                              rowUserRecord.photoUrl,
+                              'https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg',
+                            ),
                             fit: BoxFit.cover,
                           ),
                         ),
