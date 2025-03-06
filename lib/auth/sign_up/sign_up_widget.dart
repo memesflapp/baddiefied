@@ -148,16 +148,6 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                   ),
                             ),
                           ),
-                          // Text(
-                          //   'Username',
-                          //   style: FlutterFlowTheme.of(context)
-                          //       .bodyMedium
-                          //       .override(
-                          //         fontSize: 14.0,
-                          //         letterSpacing: 0.0,
-                          //         fontWeight: FontWeight.w500,
-                          //       ),
-                          // ),
                           Flexible(
                             child: Container(
                               decoration: const BoxDecoration(
@@ -214,9 +204,6 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
-                                  // filled: true,
-                                  // fillColor: FlutterFlowTheme.of(context)
-                                  //     .secondaryBackground,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -241,15 +228,6 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                     letterSpacing: 0.0,
                                   ),
                             ),
-                          // Text(
-                          //   'Email',
-                          //   style: FlutterFlowTheme.of(context)
-                          //       .bodyMedium
-                          //       .override(
-                          //         letterSpacing: 0.0,
-                          //         fontWeight: FontWeight.w500,
-                          //       ),
-                          // ),
                           Flexible(
                             child: Container(
                               decoration: const BoxDecoration(
@@ -323,15 +301,6 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                               ),
                             ),
                           ),
-                          // Text(
-                          //   'Password',
-                          //   style: FlutterFlowTheme.of(context)
-                          //       .bodyMedium
-                          //       .override(
-                          //         letterSpacing: 0.0,
-                          //         fontWeight: FontWeight.w500,
-                          //       ),
-                          // ),
                           Flexible(
                             child: Container(
                               decoration: const BoxDecoration(
