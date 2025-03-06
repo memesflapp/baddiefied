@@ -255,8 +255,7 @@ class _PostWidgetState extends State<PostWidget> {
             ),
 
             Padding(
-              padding:
-                  const EdgeInsets.only(top: 8, left: 16, right: 16),
+              padding: const EdgeInsets.only(top: 8, left: 16, right: 16),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -380,62 +379,135 @@ class _PostWidgetState extends State<PostWidget> {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    padding: const EdgeInsets.only(top: 12, bottom: 12, left: 24, right: 24),
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(image: AssetImage("assets/images/white_small_background.webp"),
-                          fit: BoxFit.fill),
+                  InkWell(
+                    onTap: () async => {
+                      if (!columnPostRecord.likes
+                          .contains(currentUserReference))
+                        {
+                          HapticFeedback.heavyImpact(),
+                          await widget.postRef!.update({
+                            ...mapToFirestore(
+                              {
+                                'likes': FieldValue.arrayUnion(
+                                    [currentUserReference]),
+                              },
+                            ),
+                          })
+                        }
+                      else
+                        {
+                          await widget.postRef!.update({
+                            ...mapToFirestore(
+                              {
+                                'likes': FieldValue.arrayRemove(
+                                    [currentUserReference]),
+                              },
+                            ),
+                          })
+                        }
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.only(
+                          top: 12, bottom: 12, left: 24, right: 24),
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(
+                                "assets/images/white_small_background.webp"),
+                            fit: BoxFit.fill),
+                      ),
+                      child: Center(
+                        child: Row(
+                          children: [
+                            Icon(
+                              !columnPostRecord.likes
+                                      .contains(currentUserReference)
+                                  ? Icons.favorite_border
+                                  : Icons.favorite,
+                              color: !columnPostRecord.likes
+                                      .contains(currentUserReference)
+                                  ? FlutterFlowTheme.of(context).primaryText
+                                  : const Color(0xFFFD1846),
+                              size: 16.0,
+                            ),
+                            Text(
+                              !columnPostRecord.likes
+                                      .contains(currentUserReference)
+                                  ? 'Like'
+                                  : 'Liked',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                      fontSize: 12.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w900,
+                                      color: FlutterFlowTheme.of(context)
+                                          .dividerColor),
+                            ),
+                          ].divide(const SizedBox(width: 7.0)),
+                        ),
+                      ),
                     ),
-                    child: Center(
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.favorite_border,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            size: 16.0,
-                          ),
-                          Text(
-                            "Like",
-                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                fontSize: 12.0,
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.w900,
-                                color: FlutterFlowTheme.of(context).dividerColor),
-                          ),
-                        ].divide(const SizedBox(width: 7.0)),
+                  ),
+                  InkWell(
+                    onTap: () async {
+                      await showModalBottomSheet(
+                        isScrollControlled: true,
+                        backgroundColor: Colors.transparent,
+                        enableDrag: false,
+                        context: context,
+                        builder: (context) {
+                          return Padding(
+                            padding: MediaQuery.viewInsetsOf(context),
+                            child: SizedBox(
+                              height: 500.0,
+                              child: CommentPostWidget(
+                                post: columnPostRecord.reference,
+                              ),
+                            ),
+                          );
+                        },
+                      ).then((value) => safeSetState(() {}));
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.only(
+                          top: 12, bottom: 12, left: 24, right: 24),
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(
+                                "assets/images/white_small_background.webp"),
+                            fit: BoxFit.fitHeight),
+                      ),
+                      child: Center(
+                        child: Row(
+                          children: [
+                            FaIcon(
+                              FontAwesomeIcons.comment,
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              size: 16.0,
+                            ),
+                            Text(
+                              "Comment",
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                      fontSize: 12.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w900,
+                                      color: FlutterFlowTheme.of(context)
+                                          .dividerColor),
+                            ),
+                          ].divide(const SizedBox(width: 7.0)),
+                        ),
                       ),
                     ),
                   ),
                   Container(
-                    padding: const EdgeInsets.only(top: 12, bottom: 12, left: 24, right: 24),
+                    padding: const EdgeInsets.only(
+                        top: 12, bottom: 12, left: 24, right: 24),
                     decoration: const BoxDecoration(
-                      image: DecorationImage(image: AssetImage("assets/images/white_small_background.webp"),
-                          fit: BoxFit.fitHeight),
-                    ),
-                    child: Center(
-                      child: Row(
-                        children: [
-                          FaIcon(
-                            FontAwesomeIcons.comment,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            size: 16.0,
-                          ),
-                          Text(
-                            "Comment",
-                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                fontSize: 12.0,
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.w900,
-                                color: FlutterFlowTheme.of(context).dividerColor),
-                          ),
-                        ].divide(const SizedBox(width: 7.0)),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.only(top: 12, bottom: 12, left: 24, right: 24),
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(image: AssetImage("assets/images/white_small_background.webp"),
+                      image: DecorationImage(
+                          image: AssetImage(
+                              "assets/images/white_small_background.webp"),
                           fit: BoxFit.fill),
                     ),
                     child: Center(
@@ -448,11 +520,14 @@ class _PostWidgetState extends State<PostWidget> {
                           ),
                           Text(
                             "Share",
-                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                fontSize: 12.0,
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.w900,
-                                color: FlutterFlowTheme.of(context).dividerColor),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                    fontSize: 12.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w900,
+                                    color: FlutterFlowTheme.of(context)
+                                        .dividerColor),
                           ),
                         ].divide(const SizedBox(width: 7.0)),
                       ),
