@@ -5,14 +5,16 @@ Future initFirebase() async {
   if (kIsWeb) {
     await Firebase.initializeApp(
         options: const FirebaseOptions(
-            apiKey: "AIzaSyD1iLYnquV3qt00EZvXwIXC0We2AbDFXHs",
-            authDomain: "inhousecrm-spc.firebaseapp.com",
-            projectId: "inhousecrm-spc",
-            storageBucket: "inhousecrm-spc.appspot.com",
-            messagingSenderId: "836116643878",
-            appId: "1:836116643878:web:2d4ebd98af05cdfea6a6e7",
-            measurementId: "G-XFGWQQGLKM"));
+            apiKey: "AIzaSyB5fv-xbtkmjrq_FwlXBXSI2xCXLDN7AoA",
+            authDomain: "flapp-meme.firebaseapp.com",
+            databaseURL: "https://flapp-meme-default-rtdb.firebaseio.com",
+            projectId: "flapp-meme",
+            storageBucket: "flapp-meme.firebasestorage.app",
+            messagingSenderId: "964930490684",
+            appId: "1:964930490684:web:b39b7aa9d48d72aad98e39",
+            measurementId: "G-FG7VWMXD28"));
   } else {
     await Firebase.initializeApp();
   }
 }
+
