@@ -57,11 +57,11 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
           child: Container(
             decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage(
-                    "assets/images/background_white.webp",
-                  ),
-                  fit: BoxFit.fill,
-                )),
+              image: AssetImage(
+                "assets/images/background_white.webp",
+              ),
+              fit: BoxFit.fill,
+            )),
             child: Stack(
               children: [
                 Padding(
@@ -73,22 +73,19 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                     children: [
                       Text(
                         'CREATE MEME',
-                        style:
-                        FlutterFlowTheme.of(context).bodyMedium.override(
-                          color: FlutterFlowTheme.of(context).dividerColor,
-                          fontSize: 20.0,
-                          letterSpacing: 2.0,
-                          fontWeight: FontWeight.w900,
-                        ),
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              color: FlutterFlowTheme.of(context).dividerColor,
+                              fontSize: 20.0,
+                              letterSpacing: 2.0,
+                              fontWeight: FontWeight.w900,
+                            ),
                       ),
                       Text(
                         'Upload Image Memes',
-                        style:
-                        FlutterFlowTheme.of(context).bodyMedium.override(
-
-                          fontSize: 18.0,
-                          letterSpacing: 0.0,
-                        ),
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontSize: 18.0,
+                              letterSpacing: 0.0,
+                            ),
                       ),
                       Column(
                         mainAxisSize: MainAxisSize.min,
@@ -98,7 +95,8 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(-1.0, 0.0),
+                                alignment:
+                                    const AlignmentDirectional(-1.0, 0.0),
                                 child: Padding(
                                   padding: const EdgeInsets.all(10.0),
                                   child: InkWell(
@@ -121,8 +119,8 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                           selectedMedia.every((m) =>
                                               validateFileFormat(
                                                   m.storagePath, context))) {
-                                        safeSetState(
-                                            () => _model.isDataUploading1 = true);
+                                        safeSetState(() =>
+                                            _model.isDataUploading1 = true);
                                         var selectedUploadedFiles =
                                             <FFUploadedFile>[];
 
@@ -133,7 +131,8 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                                         .split('/')
                                                         .last,
                                                     bytes: m.bytes,
-                                                    height: m.dimensions?.height,
+                                                    height:
+                                                        m.dimensions?.height,
                                                     width: m.dimensions?.width,
                                                     blurHash: m.blurHash,
                                                   ))
@@ -163,56 +162,61 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                         maxHeight: 700.0,
                                       ),
                                       decoration: BoxDecoration(
+                                        // <-- Remove the image property
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        image: const DecorationImage(
-                                          fit: BoxFit.cover,
-                                          image: CachedNetworkImageProvider(
-                                            '',
-                                          ),
-                                        ),
-                                        borderRadius: BorderRadius.circular(20.0),
+                                        borderRadius:
+                                            BorderRadius.circular(20.0),
                                         border: Border.all(
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
                                         ),
                                       ),
+                                      // borderRadius: BorderRadius.circular(20.0),
+                                      // border: Border.all(
+                                      //   color: FlutterFlowTheme.of(context)
+                                      //       .primary,
+                                      // ),
+                                      // ),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
                                           if ((_model.uploadedLocalFile1.bytes
-                                                      ?.isNotEmpty ??
-                                                  false))
+                                                  ?.isNotEmpty ??
+                                              false))
                                             Expanded(
                                               child: Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                alignment:
+                                                    const AlignmentDirectional(
+                                                        0.0, 0.0),
                                                 child: ClipRRect(
                                                   borderRadius:
-                                                      BorderRadius.circular(8.0),
+                                                      BorderRadius.circular(
+                                                          8.0),
                                                   child: Image.memory(
                                                     _model.uploadedLocalFile1
                                                             .bytes ??
                                                         Uint8List.fromList([]),
                                                     width: 447.0,
-                                                    height:
-                                                        MediaQuery.sizeOf(context)
-                                                                .height *
-                                                            1.0,
+                                                    height: MediaQuery.sizeOf(
+                                                                context)
+                                                            .height *
+                                                        1.0,
                                                     fit: BoxFit.cover,
                                                   ),
                                                 ),
                                               ),
                                             ),
                                           if ((_model.uploadedLocalFile1.bytes
-                                                      ?.isEmpty ??
-                                                  true))
+                                                  ?.isEmpty ??
+                                              true))
                                             Icon(
                                               Icons.cloud_upload,
-                                              color: FlutterFlowTheme.of(context)
-                                                  .primaryText,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
                                               size: 70.0,
                                             ),
                                         ],
@@ -226,8 +230,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       10.0, 10.0, 10.0, 0.0),
                                   child: SizedBox(
-                                    width: screenWidth(context) *
-                                        0.99,
+                                    width: screenWidth(context) * 0.99,
                                     child: TextFormField(
                                       controller: _model.textController1,
                                       focusNode: _model.textFieldFocusNode1,
@@ -235,72 +238,63 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         isDense: false,
-                                        labelStyle:
-                                        FlutterFlowTheme.of(context)
+                                        labelStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
-                                          letterSpacing: 0.0,
-                                        ),
+                                              letterSpacing: 0.0,
+                                            ),
                                         hintText: 'Enter Caption',
-                                        hintStyle:
-                                        FlutterFlowTheme.of(context)
+                                        hintStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
-                                          letterSpacing: 0.0,
-                                        ),
+                                              letterSpacing: 0.0,
+                                            ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
-                                            color:
-                                            FlutterFlowTheme.of(context)
+                                            color: FlutterFlowTheme.of(context)
                                                 .primaryText,
                                             width: 1.0,
                                           ),
                                           borderRadius:
-                                          BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8.0),
                                         ),
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
-                                            color:
-                                            FlutterFlowTheme.of(context)
+                                            color: FlutterFlowTheme.of(context)
                                                 .primaryText,
                                             width: 1.0,
                                           ),
                                           borderRadius:
-                                          BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8.0),
                                         ),
                                         errorBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
-                                            color:
-                                            FlutterFlowTheme.of(context)
+                                            color: FlutterFlowTheme.of(context)
                                                 .error,
                                             width: 1.0,
                                           ),
                                           borderRadius:
-                                          BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8.0),
                                         ),
-                                        focusedErrorBorder:
-                                        OutlineInputBorder(
+                                        focusedErrorBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
-                                            color:
-                                            FlutterFlowTheme.of(context)
+                                            color: FlutterFlowTheme.of(context)
                                                 .error,
                                             width: 1.0,
                                           ),
                                           borderRadius:
-                                          BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8.0),
                                         ),
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                        letterSpacing: 0.0,
-                                      ),
+                                            letterSpacing: 0.0,
+                                          ),
                                       maxLines: 10,
-                                      cursorColor:
-                                      FlutterFlowTheme.of(context)
+                                      cursorColor: FlutterFlowTheme.of(context)
                                           .primaryText,
-                                      validator: _model
-                                          .textController1Validator
+                                      validator: _model.textController1Validator
                                           .asValidator(context),
                                     ),
                                   ),
@@ -311,26 +305,23 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                           FFButtonWidget(
                             onPressed: () async {
                               {
-                                safeSetState(() =>
-                                _model.isDataUploading2 = true);
-                                var selectedUploadedFiles =
-                                <FFUploadedFile>[];
+                                safeSetState(
+                                    () => _model.isDataUploading2 = true);
+                                var selectedUploadedFiles = <FFUploadedFile>[];
                                 var selectedMedia = <SelectedFile>[];
                                 var downloadUrls = <String>[];
                                 try {
                                   selectedUploadedFiles = _model
-                                      .uploadedLocalFile1
-                                      .bytes!
-                                      .isNotEmpty
+                                          .uploadedLocalFile1.bytes!.isNotEmpty
                                       ? [_model.uploadedLocalFile1]
                                       : <FFUploadedFile>[];
                                   selectedMedia =
                                       selectedFilesFromUploadedFiles(
-                                        selectedUploadedFiles,
-                                      );
+                                    selectedUploadedFiles,
+                                  );
                                   downloadUrls = (await Future.wait(
                                     selectedMedia.map(
-                                          (m) async => await uploadData(
+                                      (m) async => await uploadData(
                                           m.storagePath, m.bytes),
                                     ),
                                   ))
@@ -341,7 +332,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                   _model.isDataUploading2 = false;
                                 }
                                 if (selectedUploadedFiles.length ==
-                                    selectedMedia.length &&
+                                        selectedMedia.length &&
                                     downloadUrls.length ==
                                         selectedMedia.length) {
                                   safeSetState(() {
@@ -357,56 +348,44 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                               }
 
                               var postRecordReference =
-                              PostRecord.collection.doc();
+                                  PostRecord.collection.doc();
                               await postRecordReference
                                   .set(createPostRecordData(
-                                postDescription:
-                                _model.textController1.text,
+                                postDescription: _model.textController1.text,
                                 timePosted: getCurrentTimestamp,
                                 userRef: currentUserReference,
                                 postPhoto: _model.uploadedFileUrl2,
                                 imageblurhash:
-                                _model.uploadedLocalFile1.blurHash,
-                                height:
-                                _model.uploadedLocalFile1.height,
+                                    _model.uploadedLocalFile1.blurHash,
+                                height: _model.uploadedLocalFile1.height,
                                 width: _model.uploadedLocalFile1.width,
                               ));
-                              _model.post =
-                                  PostRecord.getDocumentFromData(
-                                      createPostRecordData(
-                                        postDescription:
+                              _model.post = PostRecord.getDocumentFromData(
+                                  createPostRecordData(
+                                    postDescription:
                                         _model.textController1.text,
-                                        timePosted: getCurrentTimestamp,
-                                        userRef: currentUserReference,
-                                        postPhoto:
-                                        _model.uploadedFileUrl2,
-                                        imageblurhash: _model
-                                            .uploadedLocalFile1
-                                            .blurHash,
-                                        height: _model
-                                            .uploadedLocalFile1.height,
-                                        width: _model
-                                            .uploadedLocalFile1.width,
-                                      ),
-                                      postRecordReference);
-                              ScaffoldMessenger.of(context)
-                                  .clearSnackBars();
-                              ScaffoldMessenger.of(context)
-                                  .showSnackBar(
+                                    timePosted: getCurrentTimestamp,
+                                    userRef: currentUserReference,
+                                    postPhoto: _model.uploadedFileUrl2,
+                                    imageblurhash:
+                                        _model.uploadedLocalFile1.blurHash,
+                                    height: _model.uploadedLocalFile1.height,
+                                    width: _model.uploadedLocalFile1.width,
+                                  ),
+                                  postRecordReference);
+                              ScaffoldMessenger.of(context).clearSnackBars();
+                              ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: Text(
                                     'Uploaded Successfully',
                                     style: TextStyle(
-                                      color:
-                                      FlutterFlowTheme.of(context)
+                                      color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
                                     ),
                                   ),
-                                  duration:
-                                  const Duration(milliseconds: 4000),
+                                  duration: const Duration(milliseconds: 4000),
                                   backgroundColor:
-                                  FlutterFlowTheme.of(context)
-                                      .primaryText,
+                                      FlutterFlowTheme.of(context).primaryText,
                                 ),
                               );
 
@@ -419,18 +398,17 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                               height: 50.0,
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
-                              iconPadding:
-                              const EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: const Color(0xFF047C00),
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                  color: FlutterFlowTheme.of(context)
-                                      .buttonTextColor,
-                                  letterSpacing: 0.0,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w900),
+                                      color: FlutterFlowTheme.of(context)
+                                          .buttonTextColor,
+                                      letterSpacing: 0.0,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w900),
                               elevation: 0.0,
                               borderRadius: BorderRadius.circular(8.0),
                             ),
@@ -443,12 +421,10 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                       ),
                       Text(
                         'Upload Video Memes',
-                        style:
-                        FlutterFlowTheme.of(context).bodyMedium.override(
-
-                          fontSize: 18.0,
-                          letterSpacing: 0.0,
-                        ),
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontSize: 18.0,
+                              letterSpacing: 0.0,
+                            ),
                       ),
                       Row(
                         mainAxisSize: MainAxisSize.min,
@@ -463,8 +439,8 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                   path: _model.uploadedFileUrl3,
                                   videoType: VideoType.network,
                                   width: 130.0,
-                                  height: MediaQuery.sizeOf(context).height *
-                                      0.266,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.266,
                                   autoPlay: true,
                                   looping: false,
                                   showControls: false,
@@ -482,8 +458,8 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       10.0, 12.0, 10.0, 0.0),
                                   child: SizedBox(
-                                    width: MediaQuery.sizeOf(context).width *
-                                        0.99,
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 0.99,
                                     child: TextFormField(
                                       controller: _model.textController2,
                                       focusNode: _model.textFieldFocusNode2,
@@ -491,75 +467,63 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         isDense: false,
-                                        labelStyle:
-                                        FlutterFlowTheme.of(context)
+                                        labelStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
-
-                                          letterSpacing: 0.0,
-                                        ),
+                                              letterSpacing: 0.0,
+                                            ),
                                         hintText: 'Enter Caption',
-                                        hintStyle:
-                                        FlutterFlowTheme.of(context)
+                                        hintStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
-
-                                          letterSpacing: 0.0,
-                                        ),
+                                              letterSpacing: 0.0,
+                                            ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
-                                            color:
-                                            FlutterFlowTheme.of(context)
+                                            color: FlutterFlowTheme.of(context)
                                                 .primaryText,
                                             width: 1.0,
                                           ),
                                           borderRadius:
-                                          BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8.0),
                                         ),
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
-                                            color:
-                                            FlutterFlowTheme.of(context)
+                                            color: FlutterFlowTheme.of(context)
                                                 .primaryText,
                                             width: 1.0,
                                           ),
                                           borderRadius:
-                                          BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8.0),
                                         ),
                                         errorBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
-                                            color:
-                                            FlutterFlowTheme.of(context)
+                                            color: FlutterFlowTheme.of(context)
                                                 .error,
                                             width: 1.0,
                                           ),
                                           borderRadius:
-                                          BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8.0),
                                         ),
-                                        focusedErrorBorder:
-                                        OutlineInputBorder(
+                                        focusedErrorBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
-                                            color:
-                                            FlutterFlowTheme.of(context)
+                                            color: FlutterFlowTheme.of(context)
                                                 .error,
                                             width: 1.0,
                                           ),
                                           borderRadius:
-                                          BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8.0),
                                         ),
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-
-                                        letterSpacing: 0.0,
-                                      ),
+                                            letterSpacing: 0.0,
+                                          ),
                                       maxLines: 12,
-                                      cursorColor:
-                                      FlutterFlowTheme.of(context)
+                                      cursorColor: FlutterFlowTheme.of(context)
                                           .primaryText,
-                                      validator: _model
-                                          .textController2Validator
+                                      validator: _model.textController2Validator
                                           .asValidator(context),
                                     ),
                                   ),
@@ -568,11 +532,11 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                   FFButtonWidget(
                                     onPressed: () async {
                                       var videoPostRecordReference =
-                                      VideoPostRecord.collection.doc();
+                                          VideoPostRecord.collection.doc();
                                       await videoPostRecordReference
                                           .set(createVideoPostRecordData(
                                         postDescription:
-                                        _model.textController2.text,
+                                            _model.textController2.text,
                                         timePosted: getCurrentTimestamp,
                                         userRef: currentUserReference,
                                         video: _model.uploadedFileUrl3,
@@ -580,13 +544,11 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                       _model.postCopy =
                                           VideoPostRecord.getDocumentFromData(
                                               createVideoPostRecordData(
-                                                postDescription: _model
-                                                    .textController2.text,
-                                                timePosted:
-                                                getCurrentTimestamp,
+                                                postDescription:
+                                                    _model.textController2.text,
+                                                timePosted: getCurrentTimestamp,
                                                 userRef: currentUserReference,
-                                                video:
-                                                _model.uploadedFileUrl3,
+                                                video: _model.uploadedFileUrl3,
                                               ),
                                               videoPostRecordReference);
                                       ScaffoldMessenger.of(context)
@@ -598,15 +560,15 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                             'Uplaoded Succesfully',
                                             style: TextStyle(
                                               color:
-                                              FlutterFlowTheme.of(context)
-                                                  .primaryBackground,
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
                                             ),
                                           ),
-                                          duration:
-                                          const Duration(milliseconds: 4000),
+                                          duration: const Duration(
+                                              milliseconds: 4000),
                                           backgroundColor:
-                                          FlutterFlowTheme.of(context)
-                                              .primaryText,
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryText,
                                         ),
                                       );
 
@@ -617,22 +579,21 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                     text: 'Create Post',
                                     options: FFButtonOptions(
                                       height: 40.0,
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 0.0, 16.0, 0.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              16.0, 0.0, 16.0, 0.0),
                                       iconPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 0.0),
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 0.0),
                                       color: const Color(0xFF047C00),
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
-
-                                        color: Colors.white,
-                                        letterSpacing: 0.0,
-                                      ),
+                                            color: Colors.white,
+                                            letterSpacing: 0.0,
+                                          ),
                                       elevation: 0.0,
-                                      borderRadius:
-                                      BorderRadius.circular(8.0),
+                                      borderRadius: BorderRadius.circular(8.0),
                                     ),
                                   ),
                               ].divide(const SizedBox(height: 36.0)),
@@ -652,7 +613,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                 selectedMedia.every((m) => validateFileFormat(
                                     m.storagePath, context))) {
                               safeSetState(
-                                      () => _model.isDataUploading3 = true);
+                                  () => _model.isDataUploading3 = true);
                               var selectedUploadedFiles = <FFUploadedFile>[];
 
                               var downloadUrls = <String>[];
@@ -664,17 +625,17 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                 );
                                 selectedUploadedFiles = selectedMedia
                                     .map((m) => FFUploadedFile(
-                                  name: m.storagePath.split('/').last,
-                                  bytes: m.bytes,
-                                  height: m.dimensions?.height,
-                                  width: m.dimensions?.width,
-                                  blurHash: m.blurHash,
-                                ))
+                                          name: m.storagePath.split('/').last,
+                                          bytes: m.bytes,
+                                          height: m.dimensions?.height,
+                                          width: m.dimensions?.width,
+                                          blurHash: m.blurHash,
+                                        ))
                                     .toList();
 
                                 downloadUrls = (await Future.wait(
                                   selectedMedia.map(
-                                        (m) async => await uploadData(
+                                    (m) async => await uploadData(
                                         m.storagePath, m.bytes),
                                   ),
                                 ))
@@ -687,7 +648,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                 _model.isDataUploading3 = false;
                               }
                               if (selectedUploadedFiles.length ==
-                                  selectedMedia.length &&
+                                      selectedMedia.length &&
                                   downloadUrls.length == selectedMedia.length) {
                                 safeSetState(() {
                                   _model.uploadedLocalFile3 =
@@ -714,11 +675,11 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                color: FlutterFlowTheme.of(context)
-                                    .buttonTextColor,
-                                letterSpacing: 0.0,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w900),
+                                    color: FlutterFlowTheme.of(context)
+                                        .buttonTextColor,
+                                    letterSpacing: 0.0,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w900),
                             elevation: 0.0,
                             borderRadius: BorderRadius.circular(8.0),
                           ),
