@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -112,12 +114,12 @@ class _UploadWidgetState extends State<UploadWidget> {
             color: FlutterFlowTheme.of(context).secondaryBackground,
             image: DecorationImage(
               fit: BoxFit.cover,
-              image: Image.network(
+              image: CachedNetworkImageProvider(
                 valueOrDefault<String>(
                   _model.uploadedFileUrl,
                   'https://media.istockphoto.com/id/1248723171/vector/camera-photo-upload-icon-on-isolated-white-background-eps-10-vector.jpg?s=612x612&w=0&k=20&c=e-OBJ2jbB-W_vfEwNCip4PW4DqhHGXYMtC3K_mzOac0=',
                 ),
-              ).image,
+              ),
             ),
             borderRadius: BorderRadius.circular(20.0),
             border: Border.all(

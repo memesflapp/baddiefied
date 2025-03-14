@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flapp/utils/generics.dart';
 
 import '/backend/backend.dart';
@@ -257,8 +258,8 @@ class _SearchWidgetState extends State<SearchWidget> {
                                             ClipRRect(
                                               borderRadius:
                                                   BorderRadius.circular(26.0),
-                                              child: Image.network(
-                                                searchItem.photoUrl,
+                                              child: CachedNetworkImage(
+                                                imageUrl: searchItem.photoUrl,
                                                 width: 36.0,
                                                 height: 36.0,
                                                 fit: BoxFit.cover,

@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -116,9 +118,8 @@ class _FollowingWidgetState extends State<FollowingWidget> {
                                 decoration: const BoxDecoration(
                                   shape: BoxShape.circle,
                                 ),
-                                child: Image.network(
-                                  rowUserRecord.photoUrl,
-                                  fit: BoxFit.cover,
+                                child: CachedNetworkImage(
+                                  fit: BoxFit.cover, imageUrl: rowUserRecord.photoUrl,
                                 ),
                               ),
                               Expanded(

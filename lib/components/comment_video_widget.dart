@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -167,9 +169,9 @@ class _CommentVideoWidgetState extends State<CommentVideoWidget> {
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
                                       fit: BoxFit.cover,
-                                      image: Image.network(
+                                      image: CachedNetworkImageProvider(
                                         containerUserRecord.photoUrl,
-                                      ).image,
+                                      ),
                                     ),
                                     shape: BoxShape.circle,
                                   ),

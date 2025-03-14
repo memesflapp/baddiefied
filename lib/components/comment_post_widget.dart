@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flapp/utils/generics.dart';
 
 import '/auth/firebase_auth/auth_util.dart';
@@ -171,9 +172,9 @@ class _CommentPostWidgetState extends State<CommentPostWidget> {
                                       decoration: BoxDecoration(
                                         image: DecorationImage(
                                           fit: BoxFit.cover,
-                                          image: Image.network(
+                                          image: CachedNetworkImageProvider(
                                             containerUserRecord.photoUrl,
-                                          ).image,
+                                          ),
                                         ),
                                         shape: BoxShape.circle,
                                       ),

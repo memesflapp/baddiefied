@@ -235,22 +235,19 @@ class _PostWidgetState extends State<PostWidget> {
             // post
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(0.0, 9.0, 0.0, 0.0),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10.0),
-                child: OctoImage(
-                  placeholderBuilder: (_) => SizedBox.expand(
+              child: OctoImage(
+                  placeholderBuilder: (_) => SizedBox(
                     child: Image(
                       image: BlurHashImage(columnPostRecord.imageblurhash),
-                      fit: BoxFit.cover,
+                      fit: BoxFit.contain,
                     ),
                   ),
-                  image: NetworkImage(
+                  image: CachedNetworkImageProvider(
                     columnPostRecord.postPhoto,
                   ),
-                  width: 1000.0,
-                  height: 605.0,
-                  fit: BoxFit.contain,
-                ),
+                  width: screenWidth(context) * 0.95,
+                  // height: 605.0,
+                  fit: BoxFit.contain
               ),
             ),
 

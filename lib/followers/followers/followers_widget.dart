@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -114,8 +116,8 @@ class _FollowersWidgetState extends State<FollowersWidget> {
                                 decoration: const BoxDecoration(
                                   shape: BoxShape.circle,
                                 ),
-                                child: Image.network(
-                                  rowUserRecord.photoUrl,
+                                child: CachedNetworkImage(
+                                  imageUrl: rowUserRecord.photoUrl,
                                   fit: BoxFit.cover,
                                 ),
                               ),

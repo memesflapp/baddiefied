@@ -624,8 +624,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                         child: ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(8.0),
-                                          child: Image.network(
-                                            gridViewPostRecord.postPhoto,
+                                          child: CachedNetworkImage(
+                                            imageUrl: gridViewPostRecord.postPhoto,
                                             width: 200.0,
                                             height: 200.0,
                                             fit: BoxFit.cover,
