@@ -1,3 +1,4 @@
+import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -19,6 +20,16 @@ void main() async {
   await initFirebase();
 
   await FlutterFlowTheme.initialize();
+
+  await FirebaseAppCheck.instance
+  // Your personal reCaptcha public key goes here:
+      .activate(
+    androidProvider: AndroidProvider.debug, // todo: add playIntegrity here instead of debug before production
+    // appleProvider: AppleProvider.debug,
+    // webProvider: ReCaptchaV3Provider(kWebRecaptchaSiteKey),
+  );
+  // String? debugToken = await FirebaseAppCheck.instance.getToken();
+  // print('debug token for app check: $debugToken');
 
   runApp(const MyApp());
 }

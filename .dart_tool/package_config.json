@@ -206,6 +206,24 @@
       "languageVersion": "3.3"
     },
     {
+      "name": "firebase_app_check",
+      "rootUri": "file:///Users/nishchalraj/.pub-cache/hosted/pub.dev/firebase_app_check-0.3.1+4",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
+      "name": "firebase_app_check_platform_interface",
+      "rootUri": "file:///Users/nishchalraj/.pub-cache/hosted/pub.dev/firebase_app_check_platform_interface-0.1.0+38",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
+      "name": "firebase_app_check_web",
+      "rootUri": "file:///Users/nishchalraj/.pub-cache/hosted/pub.dev/firebase_app_check_web-0.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
+    },
+    {
       "name": "firebase_auth",
       "rootUri": "file:///Users/nishchalraj/.pub-cache/hosted/pub.dev/firebase_auth-5.3.1",
       "packageUri": "lib/",
@@ -1016,7 +1034,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2025-03-07T05:19:40.096256Z",
+  "generated": "2025-03-08T17:14:13.289804Z",
   "generator": "pub",
   "generatorVersion": "3.6.1",
   "flutterRoot": "file:///Users/nishchalraj/Downloads/Tools/flutter",

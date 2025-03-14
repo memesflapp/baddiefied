@@ -16,7 +16,8 @@ abstract class FlutterFlowTheme {
     return darkMode == null
         ? ThemeMode.system
         : darkMode
-            ? ThemeMode.dark
+            // ? ThemeMode.dark
+            ? ThemeMode.light // todo: change this in next version
             : ThemeMode.light;
   }
 
@@ -26,7 +27,8 @@ abstract class FlutterFlowTheme {
 
   static FlutterFlowTheme of(BuildContext context) {
     return Theme.of(context).brightness == Brightness.dark
-        ? DarkModeTheme()
+        // ? DarkModeTheme()
+        ? LightModeTheme()
         : LightModeTheme();
   }
 
