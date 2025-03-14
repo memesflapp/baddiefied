@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flapp/utils/generics.dart';
+import 'package:social_share/social_share.dart';
 
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
@@ -525,7 +526,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                               Expanded(
                                 child: FFButtonWidget(
                                   onPressed: () {
-                                    print('Button pressed ...');
+                                    SocialShare.shareOptions(
+                                        "What an amazing profile filled with amazing memes at FLAPP.MEME.\n\n You can download the app here:\nhttps://play.google.com/store/apps/details?id=com.flapp.meme"
+                                    );
                                   },
                                   text: 'Share Profile',
                                   options: FFButtonOptions(
@@ -588,9 +591,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                   gridDelegate:
                                       const SliverGridDelegateWithFixedCrossAxisCount(
                                     crossAxisCount: 2,
-                                    crossAxisSpacing: 10.0,
-                                    mainAxisSpacing: 10.0,
-                                    childAspectRatio: 1.0,
+                                    crossAxisSpacing: 8.0,
+                                    mainAxisSpacing: 8.0,
+                                    childAspectRatio: 1.51,
                                   ),
                                   primary: false,
                                   scrollDirection: Axis.vertical,
@@ -621,15 +624,11 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                       child: Hero(
                                         tag: gridViewPostRecord.postPhoto,
                                         transitionOnUserGestures: true,
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: CachedNetworkImage(
-                                            imageUrl: gridViewPostRecord.postPhoto,
-                                            width: 200.0,
-                                            height: 200.0,
-                                            fit: BoxFit.cover,
-                                          ),
+                                        child: CachedNetworkImage(
+                                          imageUrl: gridViewPostRecord.postPhoto,
+                                          // width: screenWidth(context) * 0.45,
+                                          // height: screenWidth(context) * 0.25,
+                                          fit: BoxFit.cover,
                                         ),
                                       ),
                                     );

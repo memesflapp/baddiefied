@@ -1,4 +1,5 @@
 import 'package:flapp/utils/generics.dart';
+import 'package:social_share/social_share.dart';
 
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
@@ -235,19 +236,38 @@ class _PostWidgetState extends State<PostWidget> {
             // post
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(0.0, 9.0, 0.0, 0.0),
+              // child: OctoImage(
+              //     placeholderBuilder: (_) => SizedBox(
+              //       child: Image(
+              //         image: BlurHashImage(columnPostRecord.imageblurhash),
+              //         width: screenWidth(context) * 0.95,
+              //         fit: BoxFit.contain,
+              //       ),
+              //     ),
+              //     image: CachedNetworkImageProvider(
+              //       columnPostRecord.postPhoto,
+              //     ),
+              //     width: screenWidth(context) * 0.95,
+              //     // height: 605.0,
+              //     fit: BoxFit.contain
+              // ),
               child: OctoImage(
-                  placeholderBuilder: (_) => SizedBox(
-                    child: Image(
-                      image: BlurHashImage(columnPostRecord.imageblurhash),
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                  image: CachedNetworkImageProvider(
-                    columnPostRecord.postPhoto,
-                  ),
+                placeholderBuilder: (_) => SizedBox(
                   width: screenWidth(context) * 0.95,
-                  // height: 605.0,
-                  fit: BoxFit.contain
+                  height: 300,
+                  child: Image(
+                    image: BlurHashImage(columnPostRecord.imageblurhash),
+                    width: screenWidth(context) * 0.95,
+                    // height: screenWidth(context),
+                    fit: BoxFit.contain,
+                  ),
+                ),
+                image: CachedNetworkImageProvider(
+                  columnPostRecord.postPhoto,
+                ),
+                width: screenWidth(context) * 0.95,
+                // height: 300, // ✅ Ensure final image also has a fixed height
+                fit: BoxFit.contain,
               ),
             ),
 
@@ -498,35 +518,42 @@ class _PostWidgetState extends State<PostWidget> {
                       ),
                     ),
                   ),
-                  Container(
-                    padding: const EdgeInsets.only(
-                        top: 12, bottom: 12, left: 24, right: 24),
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage(
-                              "assets/images/white_small_background.webp"),
-                          fit: BoxFit.fill),
-                    ),
-                    child: Center(
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.share_outlined,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            size: 16.0,
-                          ),
-                          Text(
-                            "Share",
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                    fontSize: 12.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w900,
-                                    color: FlutterFlowTheme.of(context)
-                                        .dividerColor),
-                          ),
-                        ].divide(const SizedBox(width: 7.0)),
+                  InkWell(
+                    onTap: () {
+                      SocialShare.shareOptions(
+                          "Look at this funny meme I found on FLAPP.MEME.\n\n You can download the app here:\nhttps://play.google.com/store/apps/details?id=com.flapp.meme"
+                      );
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.only(
+                          top: 12, bottom: 12, left: 24, right: 24),
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(
+                                "assets/images/white_small_background.webp"),
+                            fit: BoxFit.fill),
+                      ),
+                      child: Center(
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.share_outlined,
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              size: 16.0,
+                            ),
+                            Text(
+                              "Share",
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                      fontSize: 12.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w900,
+                                      color: FlutterFlowTheme.of(context)
+                                          .dividerColor),
+                            ),
+                          ].divide(const SizedBox(width: 7.0)),
+                        ),
                       ),
                     ),
                   ),

@@ -782,6 +782,12 @@
       "languageVersion": "3.2"
     },
     {
+      "name": "social_share",
+      "rootUri": "file:///Users/nishchalraj/.pub-cache/hosted/pub.dev/social_share-2.3.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "source_span",
       "rootUri": "file:///Users/nishchalraj/.pub-cache/hosted/pub.dev/source_span-1.10.0",
       "packageUri": "lib/",
@@ -1034,7 +1040,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2025-03-08T17:14:13.289804Z",
+  "generated": "2025-03-14T03:44:45.720887Z",
   "generator": "pub",
   "generatorVersion": "3.6.1",
   "flutterRoot": "file:///Users/nishchalraj/Downloads/Tools/flutter",
