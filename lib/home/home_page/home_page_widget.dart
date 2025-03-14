@@ -1,7 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flapp/auth/firebase_auth/auth_util.dart';
+
 import '/backend/backend.dart';
 import '/components/block_widget.dart';
 import '/components/post_widget.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -70,25 +72,25 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               useGoogleFonts: false,
                             ),
                       ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          FlutterFlowIconButton(
-                            borderColor: Colors.transparent,
-                            borderRadius: 40.0,
-                            buttonSize: 40.0,
-                            fillColor:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            icon: Icon(
-                              Icons.person_2,
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              size: 24.0,
-                            ),
-                            onPressed: () async {
-                              context.pushNamed('Profile');
-                            },
+                      InkWell(
+                        onTap: () => context.pushNamed('Profile'),
+                        child: Container(
+                          width: MediaQuery.sizeOf(context).width * 0.065,
+                          height: MediaQuery.sizeOf(context).width * 0.065,
+                          clipBehavior: Clip.antiAlias,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
                           ),
-                        ].divide(const SizedBox(width: 10.0)),
+                          child: CachedNetworkImage(
+                            fadeInDuration: const Duration(milliseconds: 500),
+                            fadeOutDuration: const Duration(milliseconds: 500),
+                            imageUrl: valueOrDefault<String>(
+                              currentUserPhoto,
+                              'https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg',
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
                     ],
                   ),
