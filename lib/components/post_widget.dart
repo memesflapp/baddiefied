@@ -135,8 +135,8 @@ class _PostWidgetState extends State<PostWidget> {
                           }
                         },
                         child: Container(
-                          width: MediaQuery.sizeOf(context).width * 0.1,
-                          height: MediaQuery.sizeOf(context).width * 0.1,
+                          width: screenWidth(context) * 0.1,
+                          height: screenWidth(context) * 0.1,
                           clipBehavior: Clip.antiAlias,
                           decoration: const BoxDecoration(
                             shape: BoxShape.circle,
@@ -169,30 +169,15 @@ class _PostWidgetState extends State<PostWidget> {
                               }.withoutNulls,
                             );
                           },
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                rowUserRecord.username,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      letterSpacing: 0.0,
-                                    ),
-                              ),
-                              if (rowUserRecord.followers.isNotEmpty)
-                                Text(
-                                  rowUserRecord.followers.length.toString(),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontSize: 10.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w300,
-                                      ),
-                                ),
-                            ].divide(const SizedBox(height: 6.0)),
+                          child: Text(
+                            rowUserRecord.username,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                              fontWeight: FontWeight.w900,
+                              fontSize: 14,
+                              letterSpacing: 0.0,
+                            ),
                           ),
                         ),
                       ),
@@ -521,8 +506,7 @@ class _PostWidgetState extends State<PostWidget> {
                   InkWell(
                     onTap: () {
                       SocialShare.shareOptions(
-                          "Look at this funny meme I found on FLAPP.MEME.\n\n You can download the app here:\nhttps://play.google.com/store/apps/details?id=com.flapp.meme"
-                      );
+                          "Look at this funny meme I found on FLAPP.MEME.\n\n You can download the app here:\nhttps://play.google.com/store/apps/details?id=com.flapp.meme");
                     },
                     child: Container(
                       padding: const EdgeInsets.only(
