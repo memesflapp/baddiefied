@@ -93,7 +93,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                 Align(
                   alignment: const AlignmentDirectional(0.0, -1.0),
                   child: Text(
-                    'FLAPPMEME',
+                    'FLAPP.MEME',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           color: valueOrDefault<Color>(
                             Theme.of(context).brightness == Brightness.dark

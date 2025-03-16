@@ -99,7 +99,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                 Align(
                   alignment: const AlignmentDirectional(0.0, -1.0),
                   child: Text(
-                    'FLAPPMEME',
+                    'FLAPP.MEME',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           color: valueOrDefault<Color>(
                             Theme.of(context).brightness == Brightness.dark

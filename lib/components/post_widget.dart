@@ -302,7 +302,7 @@ class _PostWidgetState extends State<PostWidget> {
                                 });
                               },
                               child: FaIcon(
-                                FontAwesomeIcons.solidMeh,
+                                FontAwesomeIcons.faceSmile,
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 size: 24.0,
                               ),
@@ -323,9 +323,9 @@ class _PostWidgetState extends State<PostWidget> {
                                   ),
                                 });
                               },
-                              child: const FaIcon(
-                                FontAwesomeIcons.solidSmile,
-                                color: Color(0xFFFD1846),
+                              child: FaIcon(
+                                FontAwesomeIcons.solidFaceLaughBeam,
+                                color: FlutterFlowTheme.of(context).reactColor,
                                 size: 24.0,
                               ),
                             );
@@ -435,22 +435,22 @@ class _PostWidgetState extends State<PostWidget> {
                       child: Center(
                         child: Row(
                           children: [
-                            Icon(
+                            FaIcon(
                               !columnPostRecord.likes
                                       .contains(currentUserReference)
-                                  ? Icons.favorite_border
-                                  : Icons.favorite,
+                                  ? FontAwesomeIcons.faceSmile
+                                  : FontAwesomeIcons.solidFaceLaughBeam,
                               color: !columnPostRecord.likes
                                       .contains(currentUserReference)
                                   ? FlutterFlowTheme.of(context).primaryText
-                                  : const Color(0xFFFD1846),
+                                  : FlutterFlowTheme.of(context).reactColor,
                               size: 16.0,
                             ),
                             Text(
                               !columnPostRecord.likes
                                       .contains(currentUserReference)
-                                  ? 'Like'
-                                  : 'Liked',
+                                  ? 'React'
+                                  : 'Reacted',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(

@@ -63,7 +63,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'FLAPPMEME',
+                        'FLAPP.MEME',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               color: FlutterFlowTheme.of(context).primaryText,
                               fontSize: 20.0,
