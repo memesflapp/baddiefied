@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flapp/utils/generics.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
@@ -219,7 +220,6 @@ class _CommentPostWidgetState extends State<CommentPostWidget> {
                                               style: FlutterFlowTheme.of(context)
                                                   .bodyMedium
                                                   .override(
-
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
@@ -256,8 +256,8 @@ class _CommentPostWidgetState extends State<CommentPostWidget> {
                                                             ),
                                                           });
                                                         },
-                                                        child: Icon(
-                                                          Icons.favorite_border,
+                                                        child: FaIcon(
+                                                          FontAwesomeIcons.faceSmile,
                                                           color:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -290,9 +290,9 @@ class _CommentPostWidgetState extends State<CommentPostWidget> {
                                                             ),
                                                           });
                                                         },
-                                                        child: const Icon(
-                                                          Icons.favorite_sharp,
-                                                          color: Color(0xFFE40030),
+                                                        child: FaIcon(
+                                                          FontAwesomeIcons.solidFaceLaughBeam,
+                                                          color: FlutterFlowTheme.of(context).reactColor,
                                                           size: 20.0,
                                                         ),
                                                       );
@@ -382,8 +382,8 @@ class _CommentPostWidgetState extends State<CommentPostWidget> {
                         borderRadius: BorderRadius.circular(14.0),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: Color(0x00000000),
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).primary,
                           width: 0.0,
                         ),
                         borderRadius: BorderRadius.circular(14.0),
@@ -443,6 +443,8 @@ class _CommentPostWidgetState extends State<CommentPostWidget> {
                           },
                         ),
                       });
+
+                      _model.textController?.clear();
 
                       safeSetState(() {});
                     },

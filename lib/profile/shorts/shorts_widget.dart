@@ -1,11 +1,14 @@
 import 'dart:ui';
 import 'dart:io';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flapp/flutter_flow/flutter_flow_util.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../auth/firebase_auth/auth_util.dart';
 import '../../components/block_widget.dart';
 import '../../components/comment_video_widget.dart';
+import '../../utils/generics.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
@@ -15,10 +18,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'shorts_model.dart';
 export 'shorts_model.dart';
 
-
 class ShortsWidget extends StatefulWidget {
-
-    const ShortsWidget({super.key});
+  const ShortsWidget({super.key});
 
   @override
   State<ShortsWidget> createState() => _ShortsWidgetState();
@@ -103,17 +104,18 @@ class ShortsVideoPlayer extends StatefulWidget {
 }
 
 class _ShortsVideoPlayerState extends State<ShortsVideoPlayer> {
-    late ShortsModel _model;
+  late ShortsModel _model;
   late VideoPlayerController _controller;
   bool isVideoInitialized = false;
   bool isLoading = true;
   bool isBuffering = false;
   bool isLikedByUser = false;
+  String uploaderName = "";
 
   @override
   void initState() {
     super.initState();
-        _model = createModel(context, () => ShortsModel());
+    _model = createModel(context, () => ShortsModel());
     _loadAndCacheVideo();
     _checkIfLikedByUser();
   }
@@ -198,6 +200,27 @@ class _ShortsVideoPlayerState extends State<ShortsVideoPlayer> {
         .collection('video_post')
         .doc(widget.videoId)
         .get();
+    // todo: get user name from user table using the user_ref
+    // final userName = await FirebaseFirestore.instance.collection('users').doc(widget.)
+    final uploaderUserRef = videoDoc.data()?['user_ref'] as DocumentReference?;
+    if (uploaderUserRef != null) {
+      try {
+        final uploaderUserDoc = await uploaderUserRef.get();
+        // print('uploaderUserDoc: ${uploaderUserDoc.data()}');
+         if (uploaderUserDoc.exists) {
+           final userData = uploaderUserDoc.data() as Map<String, dynamic>?;
+           print('userData: $userData');
+           final uploaderUserName = userData?['username'] as String? ?? '';
+           setState(() {
+             uploaderName = uploaderUserName;
+           });
+        }
+      } catch(e) {
+        print('Error getting uploader user name: $e');
+      }
+    } else {
+      print('Uploader user_ref is null in the video document.');
+    }
 
     if (videoDoc.exists) {
       final likes =
@@ -232,15 +255,12 @@ class _ShortsVideoPlayerState extends State<ShortsVideoPlayer> {
                 )
               : isVideoInitialized
                   ? FittedBox(
-                     fit: BoxFit.contain,
-                    
-                        child: SizedBox(
-                           width: _controller.value.size.width,
-    height: _controller.value.size.height,
-                          child: VideoPlayer(
-                            _controller)),
-                      
-                  )
+                      fit: BoxFit.contain,
+                      child: SizedBox(
+                          width: _controller.value.size.width,
+                          height: _controller.value.size.height,
+                          child: VideoPlayer(_controller)),
+                    )
                   : const Center(
                       child: CircularProgressIndicator(
                         valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
@@ -266,13 +286,24 @@ class _ShortsVideoPlayerState extends State<ShortsVideoPlayer> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
+                      uploaderName,
+                      style: FlutterFlowTheme.of(context)
+                          .bodyMedium
+                          .override(
+                        fontWeight: FontWeight.w900,
+                        fontSize: 16,
+                        color: Colors.white,
+                        letterSpacing: 0.0,
+                      ),
+                    ),
+                    Text(
                       widget.caption,
                       style: const TextStyle(
                         color: Colors.white,
                         fontSize: 14,
                       ),
                     ),
-                  ],
+                  ].divide(const SizedBox(height: 4,)),
                 ),
                 // Like/Comment actions
                 Column(
@@ -282,13 +313,16 @@ class _ShortsVideoPlayerState extends State<ShortsVideoPlayer> {
                       onPressed: () async {
                         await _toggleLike();
                       },
-                      icon: Icon(
-                        Icons.favorite,
-                        color: isLikedByUser ? Colors.red : Colors.white,
+                      icon: FaIcon(
+                        isLikedByUser
+                            ? FontAwesomeIcons.solidFaceLaughBeam
+                            : FontAwesomeIcons.faceSmile,
+                        color: isLikedByUser ? Colors.white : Colors.white,
                       ),
                     ),
                     Text(
-                      '${widget.likes + (isLikedByUser ? 1 : 0)}', // Show updated like count
+                      '${widget.likes + (isLikedByUser ? 1 : 0)}',
+                      // Show updated like count
                       style: const TextStyle(color: Colors.white),
                     ),
                     const SizedBox(height: 16),
@@ -316,8 +350,8 @@ class _ShortsVideoPlayerState extends State<ShortsVideoPlayer> {
                           },
                         ).then((value) => safeSetState(() {}));
                       },
-                      icon: const Icon(
-                        Icons.comment,
+                      icon: const FaIcon(
+                        FontAwesomeIcons.comment,
                         color: Colors.white,
                       ),
                     ),
@@ -331,14 +365,13 @@ class _ShortsVideoPlayerState extends State<ShortsVideoPlayer> {
             ),
           ),
           Align(
-  alignment: AlignmentDirectional(-0.03, 0.07),
-  child: wrapWithModel(
-    model: _model.blockModel,
-    updateCallback: () => safeSetState(() {}),
-    child: BlockWidget(),
-  ),
-)
-
+            alignment: const AlignmentDirectional(-0.03, 0.07),
+            child: wrapWithModel(
+              model: _model.blockModel,
+              updateCallback: () => safeSetState(() {}),
+              child: const BlockWidget(),
+            ),
+          )
         ],
       ),
     );
