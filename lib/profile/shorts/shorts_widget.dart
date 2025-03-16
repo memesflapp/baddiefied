@@ -321,7 +321,7 @@ class _ShortsVideoPlayerState extends State<ShortsVideoPlayer> {
                       ),
                     ),
                     Text(
-                      '${widget.likes + (isLikedByUser ? 1 : 0)}',
+                      '${widget.likes}',
                       // Show updated like count
                       style: const TextStyle(color: Colors.white),
                     ),
