@@ -45,31 +45,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
+        resizeToAvoidBottomInset: false,
         backgroundColor: FlutterFlowTheme.of(context).purpleBackgroundColor,
-        // appBar: PreferredSize(
-        //   preferredSize:
-        //       Size.fromHeight(MediaQuery.sizeOf(context).height * 0.16),
-        //   child: AppBar(
-        //     backgroundColor: FlutterFlowTheme.of(context).primary,
-        //     automaticallyImplyLeading: false,
-        //     actions: const [],
-        //     flexibleSpace: FlexibleSpaceBar(
-        //       background: ClipRRect(
-        //         borderRadius: BorderRadius.circular(8.0),
-        //         child: Image.asset(
-        //           Theme.of(context).brightness == Brightness.dark
-        //               ? 'assets/images/trasnaparent.png'
-        //               : 'assets/images/trasnaparent.png',
-        //           width: 136.0,
-        //           height: 0.0,
-        //           fit: BoxFit.contain,
-        //         ),
-        //       ),
-        //     ),
-        //     centerTitle: true,
-        //     elevation: 0.0,
-        //   ),
-        // ),
         body: Container(
           decoration: const BoxDecoration(
               image: DecorationImage(
@@ -198,9 +175,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
-                                  // filled: true,
-                                  // fillColor: FlutterFlowTheme.of(context)
-                                  //     .secondaryBackground,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -347,10 +321,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                     ),
                   ),
                 ),
-                // Row(
-                //   mainAxisSize: MainAxisSize.max,
-                //   mainAxisAlignment: MainAxisAlignment.end,
-                //   children: [
                     Column(
                       children: [
                         Text(
@@ -401,8 +371,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         ),
                       ],
                     ),
-                //   ],
-                // )
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,

@@ -76,6 +76,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).purpleBackgroundColor,
+        resizeToAvoidBottomInset: false,
         body: Container(
           decoration: const BoxDecoration(
               image: DecorationImage(
@@ -543,7 +544,8 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                           ),
                     ),
                     const SizedBox(height: 12.0),
-                    FFButtonWidget( // todo: solve exceptions
+                    FFButtonWidget(
+                      // todo: solve exceptions
                       onPressed: () async {
                         context.pushNamed('LoginPage');
                       },
