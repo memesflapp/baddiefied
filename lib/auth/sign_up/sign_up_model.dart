@@ -16,15 +16,22 @@ class SignUpModel extends FlutterFlowModel<SignUpWidget> {
   String? Function(BuildContext, String?)? textControllerValidator;
   // Stores action output result for [Firestore Query - Query a collection] action in TextField widget.
   UserNameRecord? userName;
+
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode2;
   TextEditingController? emailTextController;
   String? Function(BuildContext, String?)? emailTextControllerValidator;
+
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode3;
   TextEditingController? passwordTextController;
   late bool passwordVisibility;
   String? Function(BuildContext, String?)? passwordTextControllerValidator;
+
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode4;
+  TextEditingController? nameTextController;
+  String? Function(BuildContext, String?)? nameTextControllerValidator;
 
   @override
   void initState(BuildContext context) {
