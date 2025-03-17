@@ -78,14 +78,22 @@ class _SignOutWidgetState extends State<SignOutWidget> {
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text(
-                  'Cancle',
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-
-                        fontSize: 16.0,
-                        letterSpacing: 0.0,
-                        fontWeight: FontWeight.w500,
-                      ),
+                InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () {
+                    context.pop();
+                  },
+                  child: Text(
+                    'Cancel',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontSize: 16.0,
+                          letterSpacing: 0.0,
+                          fontWeight: FontWeight.w500,
+                        ),
+                  ),
                 ),
                 InkWell(
                   splashColor: Colors.transparent,
