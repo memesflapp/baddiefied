@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:collection/collection.dart';
 
+import '../../utils/generics.dart';
 import '/backend/schema/util/firestore_util.dart';
 
 import 'index.dart';
@@ -27,7 +28,7 @@ class UserRecord extends FirestoreRecord {
 
   // "photo_url" field.
   String? _photoUrl;
-  String get photoUrl => _photoUrl ?? '';
+  String get photoUrl => _photoUrl ?? "https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg";
   bool hasPhotoUrl() => _photoUrl != null;
 
   // "uid" field.
@@ -72,7 +73,7 @@ class UserRecord extends FirestoreRecord {
 
   // "username" field.
   String? _username;
-  String get username => _username ?? '';
+  String get username => _username ?? generateRandomUsername();
   bool hasUsername() => _username != null;
 
   // "block_user" field.

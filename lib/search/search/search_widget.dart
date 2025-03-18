@@ -259,7 +259,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                                               borderRadius:
                                                   BorderRadius.circular(26.0),
                                               child: CachedNetworkImage(
-                                                imageUrl: searchItem.photoUrl,
+                                                imageUrl: searchItem.photoUrl.isNotEmpty ? searchItem.photoUrl : "https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg",
                                                 width: 36.0,
                                                 height: 36.0,
                                                 fit: BoxFit.cover,
@@ -280,7 +280,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                       CrossAxisAlignment.start,
                                                   children: [
                                                     Text(
-                                                      searchItem.displayName,
+                                                      searchItem.displayName.isNotEmpty ? searchItem.displayName : generateRandomUsername(),
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium

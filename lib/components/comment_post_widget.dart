@@ -174,7 +174,10 @@ class _CommentPostWidgetState extends State<CommentPostWidget> {
                                         image: DecorationImage(
                                           fit: BoxFit.cover,
                                           image: CachedNetworkImageProvider(
-                                            containerUserRecord.photoUrl,
+                                            containerUserRecord
+                                                    .photoUrl.isNotEmpty
+                                                ? containerUserRecord.photoUrl
+                                                : "https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg",
                                           ),
                                         ),
                                         shape: BoxShape.circle,

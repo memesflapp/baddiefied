@@ -85,7 +85,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           ),
                           AuthUserStreamWidget(
                             builder: (context) => Text(
-                              valueOrDefault(currentUserDocument?.username, ''),
+                              valueOrDefault(currentUserDocument?.username, ""),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -149,6 +149,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                 context: context,
                                 allowPhoto: true,
                               );
+
+                              print('selectedMedia: $selectedMedia');
+
                               if (selectedMedia != null &&
                                   selectedMedia.every((m) => validateFileFormat(
                                       m.storagePath, context))) {
@@ -197,6 +200,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                     _model.uploadedFileUrl = downloadUrls.first;
                                   });
                                   showUploadMessage(context, 'Success!');
+                                  await currentUserReference!
+                                      .update(createUserRecordData(
+                                    photoUrl: _model.uploadedFileUrl,
+                                  ));
                                 } else {
                                   safeSetState(() {});
                                   showUploadMessage(
@@ -204,11 +211,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                   return;
                                 }
                               }
-
-                              await currentUserReference!
-                                  .update(createUserRecordData(
-                                photoUrl: _model.uploadedFileUrl,
-                              ));
                             },
                             child: Container(
                               width: screenWidth(context) * 0.22,
@@ -232,7 +234,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                       8), // Customize the inner border radius
                                 ),
                                 child: CachedNetworkImage(
-                                  imageUrl: currentUserPhoto,
+                                  imageUrl: currentUserPhoto.isNotEmpty ? currentUserPhoto : "https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg",
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -527,8 +529,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                 child: FFButtonWidget(
                                   onPressed: () {
                                     SocialShare.shareOptions(
-                                        "What an amazing profile filled with amazing memes at FLAPP.MEME.\n\n You can download the app here:\nhttps://play.google.com/store/apps/details?id=com.flapp.meme"
-                                    );
+                                        "What an amazing profile filled with amazing memes at FLAPP.MEME.\n\n You can download the app here:\nhttps://play.google.com/store/apps/details?id=com.flapp.meme");
                                   },
                                   text: 'Share Profile',
                                   options: FFButtonOptions(
@@ -625,7 +626,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                         tag: gridViewPostRecord.postPhoto,
                                         transitionOnUserGestures: true,
                                         child: CachedNetworkImage(
-                                          imageUrl: gridViewPostRecord.postPhoto,
+                                          imageUrl:
+                                              gridViewPostRecord.postPhoto,
                                           // width: screenWidth(context) * 0.45,
                                           // height: screenWidth(context) * 0.25,
                                           fit: BoxFit.cover,
