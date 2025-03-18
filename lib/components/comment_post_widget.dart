@@ -232,9 +232,9 @@ class _CommentPostWidgetState extends State<CommentPostWidget> {
                                               children: [
                                                 Builder(
                                                   builder: (context) {
-                                                    if (!columnCommentRecord.liked
+                                                    var isLikedByUser = columnCommentRecord.liked
                                                         .contains(
-                                                            currentUserReference)) {
+                                                        currentUserReference);
                                                       return InkWell(
                                                         splashColor:
                                                             Colors.transparent,
@@ -245,6 +245,8 @@ class _CommentPostWidgetState extends State<CommentPostWidget> {
                                                         highlightColor:
                                                             Colors.transparent,
                                                         onTap: () async {
+
+                                                          if (!isLikedByUser) {
                                                           await columnCommentRecord
                                                               .reference
                                                               .update({
@@ -252,54 +254,36 @@ class _CommentPostWidgetState extends State<CommentPostWidget> {
                                                               {
                                                                 'liked': FieldValue
                                                                     .arrayUnion([
-                                                                  columnUserRecord
-                                                                      .reference
+                                                                  currentUserReference
                                                                 ]),
                                                               },
                                                             ),
                                                           });
-                                                        },
+                                                        } else {
+                                                            await columnCommentRecord
+                                                                .reference
+                                                                .update({
+                                                              ...mapToFirestore(
+                                                                {
+                                                                  'liked': FieldValue
+                                                                      .arrayRemove([
+                                                                    currentUserReference
+                                                                  ]),
+                                                                },
+                                                              ),
+                                                            });
+                                                          }
+                                                      },
                                                         child: FaIcon(
-                                                          FontAwesomeIcons.faceSmile,
+                                                          isLikedByUser ? FontAwesomeIcons.solidFaceLaughBeam
+                                                          : FontAwesomeIcons.faceSmile,
                                                           color:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
+                                                              isLikedByUser ? FlutterFlowTheme.of(context).reactColor : FlutterFlowTheme.of(
+                                                                  context)
                                                                   .secondaryText,
                                                           size: 20.0,
                                                         ),
                                                       );
-                                                    } else {
-                                                      return InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          await columnCommentRecord
-                                                              .reference
-                                                              .update({
-                                                            ...mapToFirestore(
-                                                              {
-                                                                'liked': FieldValue
-                                                                    .arrayRemove([
-                                                                  columnUserRecord
-                                                                      .reference
-                                                                ]),
-                                                              },
-                                                            ),
-                                                          });
-                                                        },
-                                                        child: FaIcon(
-                                                          FontAwesomeIcons.solidFaceLaughBeam,
-                                                          color: FlutterFlowTheme.of(context).reactColor,
-                                                          size: 20.0,
-                                                        ),
-                                                      );
-                                                    }
                                                   },
                                                 ),
                                                 Text(

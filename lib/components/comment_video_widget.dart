@@ -252,8 +252,7 @@ class _CommentVideoWidgetState extends State<CommentVideoWidget> {
                                                               {
                                                                 'liked': FieldValue
                                                                     .arrayUnion([
-                                                                  columnUserRecord
-                                                                      .reference
+                                                                  currentUserReference
                                                                 ]),
                                                               },
                                                             ),
@@ -286,8 +285,7 @@ class _CommentVideoWidgetState extends State<CommentVideoWidget> {
                                                               {
                                                                 'liked': FieldValue
                                                                     .arrayRemove([
-                                                                  columnUserRecord
-                                                                      .reference
+                                                                  currentUserReference
                                                                 ]),
                                                               },
                                                             ),
