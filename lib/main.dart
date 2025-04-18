@@ -161,7 +161,7 @@ class _NavBarPageState extends State<NavBarPage> {
         duration: const Duration(milliseconds: 500),
         haptic: true,
         tabs: const [
-          GButton(
+          GButton( // todo: signin with google me username dalna padta hai
             icon: Icons.home_outlined,
             text: 'Home',
             iconSize: 24.0,

@@ -97,6 +97,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+                // screen title text
                 Align(
                   alignment: const AlignmentDirectional(0.0, -1.0),
                   child: Text(
@@ -115,6 +116,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                     ),
                   ),
                 ),
+                //
                 Column(
                   children: [
                     Container(
@@ -151,6 +153,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                   ),
                                 ),
                               ),
+                              // name field
                               Flexible(
                                 child: Container(
                                   decoration: const BoxDecoration(
@@ -220,6 +223,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                   ),
                                 ),
                               ),
+                              // username field
                               Flexible(
                                 child: Container(
                                   decoration: const BoxDecoration(
@@ -300,6 +304,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                     letterSpacing: 0.0,
                                   ),
                                 ),
+                              // email field
                               Flexible(
                                 child: Container(
                                   decoration: const BoxDecoration(
@@ -373,6 +378,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                   ),
                                 ),
                               ),
+                              // password field
                               Flexible(
                                 child: Container(
                                   decoration: const BoxDecoration(
@@ -460,6 +466,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                   ),
                                 ),
                               ),
+                              // register button
                               Align(
                                 alignment: const AlignmentDirectional(0.0, 1.0),
                                 child: FFButtonWidget(
@@ -519,6 +526,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                         ),
                       ),
                     ),
+                    // register with google button
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: FFButtonWidget(
@@ -543,6 +551,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
 
                             context.goNamedAuth('HomePage', context.mounted);
                           } else {
+                            // todo: generate a username and set by default and pass it in same manner as the above if statement
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Text(
@@ -586,6 +595,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                     ),
                   ],
                 ),
+                // already have an account panel
                 Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
