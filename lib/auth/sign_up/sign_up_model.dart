@@ -33,6 +33,12 @@ class SignUpModel extends FlutterFlowModel<SignUpWidget> {
   TextEditingController? nameTextController;
   String? Function(BuildContext, String?)? nameTextControllerValidator;
 
+  // Stores action output result for [Custom Action - generateRandomUsername] action in TextField widget.
+  String? randomUserName;
+
+  // Add username error field
+  String? usernameError;
+
   @override
   void initState(BuildContext context) {
     passwordVisibility = false;
@@ -48,5 +54,8 @@ class SignUpModel extends FlutterFlowModel<SignUpWidget> {
 
     textFieldFocusNode3?.dispose();
     passwordTextController?.dispose();
+
+    textFieldFocusNode4?.dispose();
+    nameTextController?.dispose();
   }
 }

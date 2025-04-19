@@ -39,7 +39,10 @@ class _ShortsWidgetState extends State<ShortsWidget> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: StreamBuilder<List<VideoPostRecord>>(
-        stream: queryVideoPostRecord(),
+        stream: queryVideoPostRecord(
+          queryBuilder: (videoPostRecord) =>
+              videoPostRecord.orderBy('time_posted', descending: true),
+        ),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return const Center(

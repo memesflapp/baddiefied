@@ -15,6 +15,6 @@ String generateRandomUsername() {
       'qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM0123456789';
   Random rnd = Random.secure();
   String generatedUserId = String.fromCharCodes(Iterable.generate(
-      7, (_) => chars.codeUnitAt(rnd.nextInt(chars.length))));
+      11, (_) => chars.codeUnitAt(rnd.nextInt(chars.length))));
   return "user_$generatedUserId";
 }
