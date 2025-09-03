@@ -3,13 +3,11 @@ import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
+import { Suspense } from "react"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: {
-    default: "Flapp.meme",
-    template: "%s | Flapp.meme",
-  },
+  title: "Flapp.meme",
   description: "The ultimate platform for creating, sharing, and discovering the funniest memes on the internet!",
     generator: 'v0.app'
 }
@@ -31,7 +29,7 @@ html {
         `}</style>
       </head>
       <body>
-        {children}
+        <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
       </body>
     </html>
