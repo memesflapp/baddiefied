@@ -178,9 +178,15 @@ export default function LandingPage() {
                     href="https://apps.apple.com/us/app/flapp-meme/id6762445136"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative z-10 block bg-black text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-900 transition-colors text-center"
+                    className="relative z-10 block"
                   >
-                    Download on App Store
+                    <Image
+                      src="/images/apple-app-store-badge.png"
+                      alt="Download on the App Store"
+                      width={220}
+                      height={66}
+                      className="rounded-lg"
+                    />
                   </a>
                 </motion.div>
               </motion.div>
