@@ -17,31 +17,38 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-[#2c0646] text-white overflow-hidden">
-      {/* 3D Background Elements */}
+      {/* 3D Background Elements - Optimized */}
       <div className="fixed inset-0 z-0 opacity-10 pointer-events-none">
-        {Array.from({ length: 20 }).map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full bg-white"
-            style={{
-              width: `${Math.random() * 300 + 50}px`,
-              height: `${Math.random() * 300 + 50}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              filter: "blur(100px)",
-            }}
-            animate={{
-              x: [0, Math.random() * 50 - 25],
-              y: [0, Math.random() * 50 - 25],
-            }}
-            transition={{
-              duration: Math.random() * 10 + 20,
-              repeat: Number.POSITIVE_INFINITY,
-              repeatType: "reverse",
-              ease: "easeInOut",
-            }}
-          />
-        ))}
+        <div
+          className="absolute rounded-full bg-white"
+          style={{
+            width: "300px",
+            height: "300px",
+            left: "10%",
+            top: "20%",
+            filter: "blur(100px)",
+          }}
+        />
+        <div
+          className="absolute rounded-full bg-white"
+          style={{
+            width: "250px",
+            height: "250px",
+            right: "15%",
+            top: "60%",
+            filter: "blur(100px)",
+          }}
+        />
+        <div
+          className="absolute rounded-full bg-white"
+          style={{
+            width: "280px",
+            height: "280px",
+            left: "50%",
+            bottom: "10%",
+            filter: "blur(100px)",
+          }}
+        />
       </div>
 
       {/* Navigation */}

@@ -52,6 +52,21 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        sky: {
+          DEFAULT: "hsl(var(--sky, 210 100% 50%))",
+        },
+        stone: {
+          DEFAULT: "hsl(var(--stone, 30 10% 50%))",
+        },
+        neutral: {
+          DEFAULT: "hsl(var(--neutral, 0 0% 50%))",
+        },
+        gray: {
+          DEFAULT: "hsl(var(--gray, 220 13% 50%))",
+        },
+        slate: {
+          DEFAULT: "hsl(var(--slate, 215 16% 50%))",
+        },
         // Custom theme colors
         flapp: {
           primary: "#2c0646",
