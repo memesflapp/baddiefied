@@ -144,25 +144,45 @@ export default function LandingPage() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.7, duration: 0.5 }}
-                whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-                whileTap={{ scale: 0.98 }}
-                className="relative"
+                className="flex flex-col md:flex-row gap-4 items-center md:items-start"
               >
-                <div className="absolute inset-0 bg-black/20 rounded-xl blur-md transform translate-y-2"></div>
-                <a
-                  href="https://play.google.com/store/apps/details?id=com.flapp.meme"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative z-10 block"
+                <motion.div
+                  whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                  whileTap={{ scale: 0.98 }}
+                  className="relative"
                 >
-                  <Image
-                    src="/images/google-play-badge.png"
-                    alt="Get it on Google Play"
-                    width={220}
-                    height={66}
-                    className="rounded-lg"
-                  />
-                </a>
+                  <div className="absolute inset-0 bg-black/20 rounded-xl blur-md transform translate-y-2"></div>
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.flapp.meme"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative z-10 block"
+                  >
+                    <Image
+                      src="/images/google-play-badge.png"
+                      alt="Get it on Google Play"
+                      width={220}
+                      height={66}
+                      className="rounded-lg"
+                    />
+                  </a>
+                </motion.div>
+
+                <motion.div
+                  whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                  whileTap={{ scale: 0.98 }}
+                  className="relative"
+                >
+                  <div className="absolute inset-0 bg-black/20 rounded-xl blur-md transform translate-y-2"></div>
+                  <a
+                    href="https://apps.apple.com/us/app/flapp-meme/id6762445136"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative z-10 block bg-black text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-900 transition-colors text-center"
+                  >
+                    Download on App Store
+                  </a>
+                </motion.div>
               </motion.div>
             </motion.div>
 
