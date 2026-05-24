@@ -144,7 +144,7 @@ export default function LandingPage() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.7, duration: 0.5 }}
-                className="flex flex-col md:flex-row gap-4 items-center md:items-start"
+                className="flex flex-col md:flex-row gap-4 items-center"
               >
                 <motion.div
                   whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
