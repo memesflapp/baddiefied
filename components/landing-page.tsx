@@ -58,7 +58,7 @@ export default function LandingPage() {
         }`}
       >
         <div className="container mx-auto px-4 flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-2 sm:gap-3">
             <div className="relative">
               <div className="absolute inset-0 bg-white/5 rounded-full blur-md transform -translate-x-1 translate-y-1"></div>
               <Image
@@ -69,12 +69,12 @@ export default function LandingPage() {
                 className="rounded-full relative z-10"
               />
             </div>
-            <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-300">
+            <span className="text-lg sm:text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-300 hidden sm:block">
               Flapp.meme
             </span>
           </Link>
           <nav>
-            <ul className="flex gap-6">
+            <ul className="flex gap-3 sm:gap-6 text-sm sm:text-base">
               <li>
                 <a href="#about" className="relative group">
                   <span className="text-white/80 group-hover:text-white transition-colors">About</span>
@@ -89,7 +89,8 @@ export default function LandingPage() {
               </li>
               <li>
                 <a href="#privacy" className="relative group">
-                  <span className="text-white/80 group-hover:text-white transition-colors">Privacy Policy</span>
+                  <span className="text-white/80 group-hover:text-white transition-colors hidden sm:inline">Privacy</span>
+                  <span className="text-white/80 group-hover:text-white transition-colors sm:hidden">Policy</span>
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-pink-500 to-purple-500 group-hover:w-full transition-all duration-300"></span>
                 </a>
               </li>
@@ -144,12 +145,12 @@ export default function LandingPage() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.7, duration: 0.5 }}
-                className="flex flex-col md:flex-row gap-4 items-center"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center md:justify-start w-full"
               >
                 <motion.div
                   whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                   whileTap={{ scale: 0.98 }}
-                  className="relative"
+                  className="relative w-full sm:w-auto"
                 >
                   <div className="absolute inset-0 bg-black/20 rounded-xl blur-md transform translate-y-2"></div>
                   <a
@@ -163,7 +164,8 @@ export default function LandingPage() {
                       alt="Get it on Google Play"
                       width={220}
                       height={66}
-                      className="rounded-lg"
+                      className="rounded-lg w-full h-auto"
+                      priority
                     />
                   </a>
                 </motion.div>
@@ -171,7 +173,7 @@ export default function LandingPage() {
                 <motion.div
                   whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                   whileTap={{ scale: 0.98 }}
-                  className="relative"
+                  className="relative w-full sm:w-auto"
                 >
                   <div className="absolute inset-0 bg-black/20 rounded-xl blur-md transform translate-y-2"></div>
                   <a
@@ -185,7 +187,8 @@ export default function LandingPage() {
                       alt="Download on the App Store"
                       width={220}
                       height={66}
-                      className="rounded-lg"
+                      className="rounded-lg w-full h-auto"
+                      priority
                     />
                   </a>
                 </motion.div>
