@@ -150,14 +150,14 @@ export default function LandingPage() {
                 <motion.div
                   whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                   whileTap={{ scale: 0.98 }}
-                  className="relative w-full sm:w-56"
+                  className="relative w-full sm:w-56 h-20 sm:h-auto flex items-center"
                 >
                   <div className="absolute inset-0 bg-black/20 rounded-xl blur-md transform translate-y-2"></div>
                   <a
                     href="https://play.google.com/store/apps/details?id=com.flapp.meme"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative z-10 block"
+                    className="relative z-10 block w-full"
                   >
                     <Image
                       src="/images/google-play-badge.png"
@@ -173,21 +173,21 @@ export default function LandingPage() {
                 <motion.div
                   whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                   whileTap={{ scale: 0.98 }}
-                  className="relative w-full sm:w-56"
+                  className="relative w-full sm:w-56 h-20 sm:h-auto flex items-center"
                 >
                   <div className="absolute inset-0 bg-black/20 rounded-xl blur-md transform translate-y-2"></div>
                   <a
                     href="https://apps.apple.com/us/app/flapp-meme/id6762445136"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative z-10 block"
+                    className="relative z-10 block w-full"
                   >
                     <Image
                       src="/images/apple-app-store-badge.png"
                       alt="Download on the App Store"
                       width={220}
                       height={66}
-                      className="rounded-lg w-full h-auto object-contain"
+                      className="rounded-lg w-full h-auto"
                       priority
                     />
                   </a>
