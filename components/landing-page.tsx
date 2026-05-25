@@ -145,12 +145,12 @@ export default function LandingPage() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.7, duration: 0.5 }}
-                className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center md:justify-start w-full"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch justify-center md:justify-start w-full max-w-2xl"
               >
                 <motion.div
                   whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                   whileTap={{ scale: 0.98 }}
-                  className="relative w-full sm:w-56 h-20 sm:h-auto flex items-center"
+                  className="relative flex-1 sm:flex-none sm:w-56 flex items-center justify-center"
                 >
                   <div className="absolute inset-0 bg-black/20 rounded-xl blur-md transform translate-y-2"></div>
                   <a
@@ -164,7 +164,7 @@ export default function LandingPage() {
                       alt="Get it on Google Play"
                       width={220}
                       height={66}
-                      className="rounded-lg w-full h-auto"
+                      className="rounded-lg w-full h-auto object-contain"
                       priority
                     />
                   </a>
@@ -173,7 +173,7 @@ export default function LandingPage() {
                 <motion.div
                   whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                   whileTap={{ scale: 0.98 }}
-                  className="relative w-full sm:w-56 h-20 sm:h-auto flex items-center"
+                  className="relative flex-1 sm:flex-none sm:w-56 flex items-center justify-center"
                 >
                   <div className="absolute inset-0 bg-black/20 rounded-xl blur-md transform translate-y-2"></div>
                   <a
@@ -187,7 +187,7 @@ export default function LandingPage() {
                       alt="Download on the App Store"
                       width={220}
                       height={66}
-                      className="rounded-lg w-full h-auto"
+                      className="rounded-lg w-full h-auto object-contain"
                       priority
                     />
                   </a>
