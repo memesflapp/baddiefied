@@ -127,9 +127,7 @@ export default function LandingPage() {
                 transition={{ delay: 0.3, duration: 0.8 }}
                 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-300 to-cyan-300 text-center md:text-left"
               >
-                Share Memes.
-                <br />
-                Spread Joy.
+                Live the moment!
               </motion.h1>
 
               <motion.p
