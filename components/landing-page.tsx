@@ -17,31 +17,38 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-[#2c0646] text-white overflow-hidden">
-      {/* 3D Background Elements */}
+      {/* 3D Background Elements - Optimized */}
       <div className="fixed inset-0 z-0 opacity-10 pointer-events-none">
-        {Array.from({ length: 20 }).map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full bg-white"
-            style={{
-              width: `${Math.random() * 300 + 50}px`,
-              height: `${Math.random() * 300 + 50}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              filter: "blur(100px)",
-            }}
-            animate={{
-              x: [0, Math.random() * 50 - 25],
-              y: [0, Math.random() * 50 - 25],
-            }}
-            transition={{
-              duration: Math.random() * 10 + 20,
-              repeat: Number.POSITIVE_INFINITY,
-              repeatType: "reverse",
-              ease: "easeInOut",
-            }}
-          />
-        ))}
+        <div
+          className="absolute rounded-full bg-white"
+          style={{
+            width: "300px",
+            height: "300px",
+            left: "10%",
+            top: "20%",
+            filter: "blur(100px)",
+          }}
+        />
+        <div
+          className="absolute rounded-full bg-white"
+          style={{
+            width: "250px",
+            height: "250px",
+            right: "15%",
+            top: "60%",
+            filter: "blur(100px)",
+          }}
+        />
+        <div
+          className="absolute rounded-full bg-white"
+          style={{
+            width: "280px",
+            height: "280px",
+            left: "50%",
+            bottom: "10%",
+            filter: "blur(100px)",
+          }}
+        />
       </div>
 
       {/* Navigation */}
@@ -51,7 +58,7 @@ export default function LandingPage() {
         }`}
       >
         <div className="container mx-auto px-4 flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-2 sm:gap-3">
             <div className="relative">
               <div className="absolute inset-0 bg-white/5 rounded-full blur-md transform -translate-x-1 translate-y-1"></div>
               <Image
@@ -62,12 +69,12 @@ export default function LandingPage() {
                 className="rounded-full relative z-10"
               />
             </div>
-            <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-300">
+            <span className="text-lg sm:text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-300 hidden sm:block">
               Flapp.meme
             </span>
           </Link>
           <nav>
-            <ul className="flex gap-6">
+            <ul className="flex gap-3 sm:gap-6 text-sm sm:text-base">
               <li>
                 <a href="#about" className="relative group">
                   <span className="text-white/80 group-hover:text-white transition-colors">About</span>
@@ -82,7 +89,8 @@ export default function LandingPage() {
               </li>
               <li>
                 <a href="#privacy" className="relative group">
-                  <span className="text-white/80 group-hover:text-white transition-colors">Privacy Policy</span>
+                  <span className="text-white/80 group-hover:text-white transition-colors hidden sm:inline">Privacy</span>
+                  <span className="text-white/80 group-hover:text-white transition-colors sm:hidden">Policy</span>
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-pink-500 to-purple-500 group-hover:w-full transition-all duration-300"></span>
                 </a>
               </li>
@@ -119,9 +127,7 @@ export default function LandingPage() {
                 transition={{ delay: 0.3, duration: 0.8 }}
                 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-300 to-cyan-300 text-center md:text-left"
               >
-                Share Memes.
-                <br />
-                Spread Joy.
+                Live the moment!
               </motion.h1>
 
               <motion.p
@@ -137,25 +143,53 @@ export default function LandingPage() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.7, duration: 0.5 }}
-                whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-                whileTap={{ scale: 0.98 }}
-                className="relative"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch justify-center md:justify-start w-full max-w-2xl"
               >
-                <div className="absolute inset-0 bg-black/20 rounded-xl blur-md transform translate-y-2"></div>
-                <a
-                  href="https://play.google.com/store/apps/details?id=com.flapp.meme"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative z-10 block"
+                <motion.div
+                  whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                  whileTap={{ scale: 0.98 }}
+                  className="relative flex-1 sm:flex-none sm:w-56 flex items-center justify-center"
                 >
-                  <Image
-                    src="/images/google-play-badge.png"
-                    alt="Get it on Google Play"
-                    width={220}
-                    height={66}
-                    className="rounded-lg"
-                  />
-                </a>
+                  <div className="absolute inset-0 bg-black/20 rounded-xl blur-md transform translate-y-2"></div>
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.flapp.meme"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative z-10 block w-full"
+                  >
+                    <Image
+                      src="/images/google-play-badge.png"
+                      alt="Get it on Google Play"
+                      width={220}
+                      height={66}
+                      className="rounded-lg w-full h-auto object-contain"
+                      priority
+                    />
+                  </a>
+                </motion.div>
+
+                <motion.div
+                  whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                  whileTap={{ scale: 0.98 }}
+                  className="relative flex-1 sm:flex-none sm:w-56 flex items-center justify-center"
+                >
+                  <div className="absolute inset-0 bg-black/20 rounded-xl blur-md transform translate-y-2"></div>
+                  <a
+                    href="https://apps.apple.com/us/app/flapp-meme/id6762445136"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative z-10 block w-full"
+                  >
+                    <Image
+                      src="/images/apple-app-store-badge.png"
+                      alt="Download on the App Store"
+                      width={220}
+                      height={66}
+                      className="rounded-lg w-full h-auto object-contain"
+                      priority
+                    />
+                  </a>
+                </motion.div>
               </motion.div>
             </motion.div>
 
